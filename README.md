@@ -1,18 +1,6 @@
 
 WDI - Group Project
 
-
-
-
-
-
-
-
-
-
-
-
-
 Brief
 RESTful, authenticated App..
 
