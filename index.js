@@ -25,6 +25,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(dest));
 
 //Insert JWT exceptions upon completion of user routes and database
+app.use('/api', expressJWT({ secret: env.secret })
+  .unless({
+    path: [
+      { url: '/api/register', methods: ['POST'] },
+      { url: '/api/login',    methods: ['POST'] }
+    ]
+  }));
 //JWT Error handler review here
 
 app.use('/api', routes);
