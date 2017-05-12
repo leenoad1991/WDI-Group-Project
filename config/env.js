@@ -3,7 +3,7 @@ module.exports = {
   env: process.env.NODE_ENV,
   db: {
     production: process.env.MONGODB_URI,
-    development: `mongodb://localhost/appointments-${this.env}`,
-    test: `mongodb://localhost/appointments-${this.env}`
+    development: `mongodb://localhost/stockmarket-products-${this.env}`,
+    test: `mongodb://localhost/stockmarket-products-${this.env}`
   }
 };

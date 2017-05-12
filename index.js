@@ -17,7 +17,7 @@ const routes     = require('./config/routes');
 mongoose.connect(env.db[process.env.NODE_ENV]);
 
 //middlewear
-app.user(morgan('dev'));
+app.use(morgan('dev'));
 
 if (app.get('env') !== 'production') app.use(cors());
 app.use(bodyParser.json());
