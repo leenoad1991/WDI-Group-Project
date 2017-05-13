@@ -7,10 +7,11 @@ Router.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
-  const Auth = ['$q', 'TokenService', function ($q, TokenService) {
+  const Auth = ['$q', 'TokenService', '$state', function ($q, TokenService, $state) {
     if (TokenService.getToken()) {
       return $q.when(TokenService.getToken);
     } else {
+      $state.go('login');
       return $q.reject({ authenticated: false });
     }
   }];
