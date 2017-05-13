@@ -1,11 +1,19 @@
 angular
-  .module('wineApp')
-  .config(Router);
+.module('wineApp')
+.config(Router);
 
 Router.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
 function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
+
+  const Auth = ['$q', 'TokenService', function ($q, TokenService) {
+    if (TokenService.getToken()) {
+      return $q.when(TokenService.getToken);
+    } else {
+      return $q.reject({ authenticated: false });
+    }
+  }];
 
   $stateProvider
   .state('home', {
@@ -34,7 +42,10 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     url: '/wines',
     templateUrl: '/js/views/product/index.html',
     controller: 'ProductsIndexCtrl',
-    controllerAs: 'productsIndex'
+    controllerAs: 'productsIndex',
+    resolve: {
+      auth: Auth
+    }
   });
   $urlRouterProvider.otherwise('/');
 }
