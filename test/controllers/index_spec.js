@@ -1,4 +1,4 @@
-const { api, expect } = require('./spec_helper');
+const { api, expect } = require('../spec_helper');
 
 
 describe('GET /*', function() {
