@@ -1,1 +1,14 @@
 <h1>products Index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 card" ng-repeat="product in productsIndex.products">
+      Name: {{ product.name }} <br>
+      Info: {{ product.info }} <br>
+      Description: {{ product.description }} <br>
+      Location: {{ product.location }} <br>
+      Price: {{ product.price }} <br>
+      <img src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="">
+      <hr>
+    </div>
+  </div>
+</div>
