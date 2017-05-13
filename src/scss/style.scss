@@ -11,6 +11,35 @@
   border: none;
 }
 
+.landing-page-navbar {
+  background-color: #f5f5f5;
+  height: 60px;
+  text-align: center;
+  h3 {
+    margin-left: 20%;
+    display: inline-block;
+    color: #9F031B;
+  }
+  button {
+    margin-top: 8px;
+    margin-right: 50px;
+    padding: 10px 28px;
+    border: solid 1px #9F031B;
+    background-color: #f5f5f5;
+    color: #9F031B;
+    border-radius: 5px;
+    float: right;
+
+    &:hover {
+      background-color: #9F031B;
+      color: #f5f5f5;
+    }
+    &:focus {
+      display: none;
+    }
+  }
+}
+
 .navbar-nav {
   a {
     color: #f5f5f5 !important;
@@ -31,4 +60,38 @@
   background: -o-linear-gradient(to top, #D70909, #9F031B); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(to top, #D70909, #9F031B); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to top, #D70909, #9F031B);
+}
+
+
+.landing-page-hero-statement {
+  text-align: center;
+  color: #9F031B;
+  h1 {
+    padding: 60px;
+  }
+}
+
+.placeholder-image {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background-color: lightgrey;
+}
+
+.landing-page-content {
+    padding: 30px;
+    font-size: 1.9rem;
+}
+
+.footer {
+  text-align: center;
+  height: 60px;
+  margin-top: 80px;
+  background-color: lightgrey;
+
+  p {
+    padding: 20px;
+    margin: 0 auto;
+  }
 }
