@@ -1,5 +1,5 @@
 angular
-  .module('homeworkApp')
+  .module('wineApp')
   .controler('LoginCtrl', LoginCtrl);
 
 LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];
@@ -17,4 +17,4 @@ function LoginCtrl(User, CurrentUserService, $state) {
       console.log(err, 'error in login controller');
     });
   };
-}  
+}

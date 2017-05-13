@@ -17,12 +17,12 @@ router.route('/users/:id')
   .put(users.update)
   .delete(users.delete);
 
-// products routes
-router.route('/wine')
-  .get(products.index);
-router.route('/wine/:id')
-  .get(products.show)
-  .put(products.update);
-  // .get(product.show) //not sure if we are doing a delete;
-
-module.exports = router;
+// // products routes
+// router.route('/wine')
+//   .get(products.index);
+// router.route('/wine/:id')
+//   .get(products.show)
+//   .put(products.update);
+//   // .get(product.show) //not sure if we are doing a delete;
+//
+// module.exports = router;
