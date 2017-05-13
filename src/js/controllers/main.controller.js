@@ -6,10 +6,14 @@ MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state'];
 
 function MainCtrl($rootScope, CurrentUserService, $state) {
   const vm = this;
+  CurrentUserService.getUser();
+  vm.loggedIn;
   $rootScope.$on('LoggedIn', () => {
     vm.user = CurrentUserService.currentUser;
+    vm.loggedIn = true;
   });
   vm.logout = () => {
+    vm.loggedIn = false;
     CurrentUserService.removeUser();
     console.log('logging out');
   };

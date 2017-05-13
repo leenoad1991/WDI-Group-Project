@@ -1,5 +1,7 @@
 // Import all of your scss files here
-
+body {
+  background-color: #F9F9F9;
+}
 //index
 .navbar  {
   background: #D70909; /* For browsers that do not support gradients */
@@ -60,6 +62,12 @@
   background: -o-linear-gradient(to top, #D70909, #9F031B); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(to top, #D70909, #9F031B); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to top, #D70909, #9F031B);
+  img {
+    margin: 0 auto;
+    display: flex;
+    width: 300px;
+    padding-top: 50px;
+  }
 }
 
 
@@ -89,9 +97,20 @@
   height: 60px;
   margin-top: 80px;
   background-color: lightgrey;
-
   p {
     padding: 20px;
     margin: 0 auto;
   }
+}
+
+// wines
+.wines-card {
+  text-align: center;
+  width: 300px;
+  margin: 10px;
+  height: 300px;
+  background-color: white;
+  box-sizing: border-box;
+  border: solid 1px #9F031B;
+  border-radius: 5px;
 }
