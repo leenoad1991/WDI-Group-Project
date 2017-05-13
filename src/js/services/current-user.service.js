@@ -14,13 +14,13 @@ angular
         .then(user => {
           console.log(user, 'User returned');
           self.currentUser = user;
-          $rootScope.$broadcast('loggedIn');
+          $rootScope.$broadcast('LoggedIn');
         });
       }
     };
     self.removeUser = () => {
       self.currentUser = null;
       TokenService.removeToken();
-      $rootScope.$broadcast('loggedOut');
+      $rootScope.$broadcast('LoggedOut');
     };
   }
