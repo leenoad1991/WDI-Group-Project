@@ -25,4 +25,4 @@ router.route('/users/:id')
 //   .put(products.update);
 //   // .get(product.show) //not sure if we are doing a delete;
 //
-// module.exports = router;
+module.exports = router;
