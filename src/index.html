@@ -11,18 +11,7 @@
     <!-- endinject -->
   </head>
   <div ng-controller="MainCtrl as main">
-  <!-- <nav class="navbar navbar-default">
-    <p> Welcome back, {{ main.user.firstName }} </p>
-    <ul>
-      <li><a ui-sref="/">Home</a></li>
-      <li><a ui-sref="login">Login</a></li>
-      <li><a ui-sref="register">Register</a></li>
-      <li><a ui-sref="account">Account</a></li>
-      <li>Basket</li>
-      <button type="button" ng-click="main.logout()">Logout</button>
-    </ul>
-  </nav> -->
-  <nav class="navbar navbar-default">
+  <nav ng-show="main.user" class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -34,11 +23,7 @@
         </button>
         <a class="navbar-brand" ui-sref="home">WineEx</a>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-        </ul>
+      <div class="collapse navbar-collapse">
         <form class="navbar-form navbar-left">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
@@ -54,9 +39,8 @@
             <button type="button" ng-click="main.logout()" class="btn btn-default">Logout</button>
           </form>
         </ul>
-
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+    </div>
   </nav>
   </div>
   <body>
