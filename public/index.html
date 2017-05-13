@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="wineApp">
   <head>
     <meta charset="utf-8">
-    <title>Angular Stack Setup</title>
+    <title>Insert witty wine/stock market joke here.</title>
     <!-- inject:js -->
     <script src="/js/app.js"></script>
     <!-- endinject -->
@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- endinject -->
   </head>
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Account</li>
+      <li>Basket</li>
+      <li>Logout</li>
+    </ul>
+  </nav>
   <body>
+    <main ui-view>
+      {{ 1+1 }}
+    </main>
   </body>
 </html>
