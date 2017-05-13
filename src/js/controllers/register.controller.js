@@ -2,7 +2,7 @@ angular
   .module('wineApp')
   .controller('UserRegisterCtrl', userRegisterCtrl);
 
-userRegisterCtrl.$inject = ['UserFactory', 'CurrentUserSerice', '$state'];
+userRegisterCtrl.$inject = ['UserFactory', 'CurrentUserService', '$state'];
 function userRegisterCtrl(UserFactory, CurrentUserService, $state) {
   const vm = this;
   vm.register = () => {
