@@ -1,11 +1,11 @@
 <h1>Register</h1>
 <div class="container">
-  <form class="form-group">
-    <input type="text" name="firstName" placeholder="First Name">
-    <input type="text" name="lastName" placeholder="Last Name">
-    <input type="email" name="email" placeholder="Enter email">
-    <input type="password" name="password" placeholder="Enter password">
-    <input type="password" name="passwordConfirmation" placeholder="Enter password confirmation">
+  <form ng-submit="register.register()" class="form-group">
+    <input type="text" name="firstName" ng-model="register.user.firstName" placeholder="First Name">
+    <input type="text" name="lastName" ng-model="register.user.lastName" placeholder="Last Name">
+    <input type="email" name="email" ng-model="register.user.email" placeholder="Enter email">
+    <input type="password" name="password" ng-model="register.user.password" placeholder="Enter password">
+    <input type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Enter password confirmation">
     <input type="submit" value="Submit">
   </form>
 </div>
