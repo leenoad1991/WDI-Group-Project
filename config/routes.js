@@ -17,9 +17,9 @@ router.route('/users/:id')
   .put(users.update)
   .delete(users.delete);
 
-// // products routes
-// router.route('/wine')
-//   .get(products.index);
+// products routes
+router.route('/wines')
+  .get(products.index);
 // router.route('/wine/:id')
 //   .get(products.show)
 //   .put(products.update);

@@ -2,7 +2,7 @@ angular
   .module('wineApp')
   .config(Router);
 
-Router.$injection = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
+Router.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
 function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
@@ -29,6 +29,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: '/js/views/users/index.html',
     controller: 'UsersIndexCtrl',
     controllerAs: 'usersIndex'
+  })
+  .state('productsIndex', {
+    url: '/wines',
+    templateUrl: '/js/views/product/index.html',
+    controller: 'ProductsIndexCtrl',
+    controllerAs: 'productsIndex'
   });
   $urlRouterProvider.otherwise('/');
 }
