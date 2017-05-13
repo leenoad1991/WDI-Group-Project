@@ -4,8 +4,8 @@ const env     = require('../config/env');
 
 function authRegister(req, res) {
   User.create(req.body, (err, user) => {
+    console.log(req.body);
     if (err) return res.status(500).json({ message: 'Something went wrong with the registration on the server side.'});
-
     //creating the initial registration token..
     const token = jwt.sign({ id: user.id, email: user.email, privileges: user.privileges}, env.secret, {expiresIn: 60*60*24});
 

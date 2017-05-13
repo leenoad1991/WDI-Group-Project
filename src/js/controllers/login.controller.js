@@ -2,12 +2,12 @@ angular
   .module('wineApp')
   .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];
-function LoginCtrl(User, CurrentUserService, $state) {
+LoginCtrl.$inject = ['UserFactory', 'CurrentUserService', '$state'];
+function LoginCtrl(UserFactory, CurrentUserService, $state) {
   const vm = this;
 
   vm.login = () => {
-    User.login(vm.user)
+    UserFactory.login(vm.user)
     .$promise
     .then(() => {
       CurrentUserService.getUser();

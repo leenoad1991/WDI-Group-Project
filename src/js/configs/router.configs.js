@@ -14,13 +14,13 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('register', {
     url: '/register',
-    templateUrl: '/js/views/register.html',
+    templateUrl: '/js/views/users/register.html',
     controller: 'UserRegisterCtrl',
     controllerAs: 'register'
   })
   .state('login', {
     url: '/login',
-    templateUrl: '/js/views/login.html',
+    templateUrl: '/js/views/users/login.html',
     controller: 'LoginCtrl',
     controllerAs: 'login'
   })
