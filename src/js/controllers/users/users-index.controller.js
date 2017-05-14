@@ -2,8 +2,8 @@ angular
   .module('wineApp')
   .controller('UsersIndexCtrl', UsersIndexCtrl);
 
-UsersIndexCtrl.$inject = ['UserFactory'];
-function UsersIndexCtrl(UserFactory) {
+UsersIndexCtrl.$inject = ['UserFactory', '$state'];
+function UsersIndexCtrl(UserFactory, $state) {
   const vm = this;
   UserFactory.query()
   .$promise
@@ -21,6 +21,7 @@ function UsersIndexCtrl(UserFactory) {
       vm.users[$index])
       .$promise
       .then(() => {
+        $state.go('account.users');
         console.log('users updated');
       });
   }
