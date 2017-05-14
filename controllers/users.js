@@ -15,7 +15,9 @@ function usersShow(req, res) {
   });
 }
 function usersUpdate(req, res) {
-  User.findByIdAndUpdate(req.params.id, req.body.user, {new: true}, (err, user) => {
+  console.log(req.body);
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, user) => {
+    console.log('Hitting Users Update', user);
     if (err) res.status(500).json({ message: 'Something went wrong updating that specific user on the server side.'});
     if (!user) res.status(404).json({ message: 'No user found by that ID'});
     return res.status(200).json(user);

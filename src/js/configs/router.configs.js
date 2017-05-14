@@ -60,25 +60,25 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('account.watchlist', {
     url: '/watchlist',
-    templateUrl: '/js/views/users/watchlist.html',
+    templateUrl: '/js/views/users/account/watchlist.html',
     controller: 'UsersWatchlistCtrl',
     controllerAs: 'watchlist'
   })
   .state('account.editProfile', {
     url: '/edit',
-    templateUrl: '/js/views/users/edit.html',
+    templateUrl: '/js/views/users/account/edit.html',
     controller: 'UserEditCtrl',
     controllerAs: 'userEdit'
   })
   .state('account.paymentOptions', {
     url: '/payment',
-    templateUrl: '/js/views/users/payment.html',
+    templateUrl: '/js/views/users/account/payment.html',
     controller: 'UserPaymentCtrl',
     controllerAs: 'userPayment'
   })
   .state('account.orders', {
     url: '/orders',
-    templateUrl: '/js/views/users/orders.html',
+    templateUrl: '/js/views/users/account/orders.html',
     controller: 'UserOrdersCtrl',
     controllerAs: 'userOrders'
   });
