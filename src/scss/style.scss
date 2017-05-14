@@ -171,19 +171,6 @@ modal-title {
       color: white;
     }
   }
-  input[type=submit] {
-    margin: 20px 0;
-    float: right;
-    display: inline-block;
-    background-color: lightgrey;
-    border: solid 1px #9F031B;
-    color: #9F031B;
-    &:hover {
-      background-color: #9F031B;
-      border: solid 1px #9F031B;
-      color: white;
-    }
-  }
   form {
     margin-top: 15px;
     // margin-left: 10%;
