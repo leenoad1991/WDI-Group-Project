@@ -5,7 +5,6 @@ angular
 UsersIndexCtrl.$inject = ['UserFactory'];
 function UsersIndexCtrl(UserFactory) {
   const vm = this;
-  console.log(UserFactory.query());
   UserFactory.query()
   .$promise
   .then(users => {

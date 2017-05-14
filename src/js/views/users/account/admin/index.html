@@ -1,9 +1,11 @@
-<div class="container">
+<div class="">
   <h1>All Users</h1>
-  <div ng-repeat="user in usersIndex.users track by $index" class="admin-user-index">
-    <p> {{ user.firstName }} {{ user.lastName }} </p>
-    <p> {{ user.email }} </p>
-    <form>
+  <div ng-repeat="user in usersIndex.users track by $index" class="admin-user-index row">
+    <div class="col-md-4">
+      <p><strong> {{ user.firstName }} {{ user.lastName }}</strong> </p>
+      <p> {{ user.email }} </p>
+    </div>
+    <form class="col-md-5">
       <div>
         <label for="admin">Admin</label>
         <input type="checkbox" name="admin" ng-model="user.privileges.admin">
@@ -21,7 +23,9 @@
         <input type="checkbox" name="admin" ng-model="user.privileges.userCrud">
       </div>
     </form>
-    <button type="button" name="button" class="btn">Delete</button>
-    <button type="button" name="button" class="btn">Edit</button>
+    <div class="col-md-3">
+      <button type="button" name="button" class="btn">Delete</button>
+      <input type="submit" class="btn" value="Update">
+    </div>
   </div>
 </div>
