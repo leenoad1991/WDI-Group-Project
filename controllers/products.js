@@ -5,7 +5,7 @@ function productsIndex(req, res) {
     .find()//((err, products) => {
     .exec()
     .then(products => {
-      console.log('hitting productIndex', products);
+      // console.log('hitting productIndex', products);
       return res.status(200).json(products);
     })
     .catch(err => {
