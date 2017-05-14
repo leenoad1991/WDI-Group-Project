@@ -139,3 +139,51 @@ text-align: center;
 modal-title {
   text-align: center;
 }
+
+
+//view Expand
+.view-expand {
+  min-height: 70vh;
+}
+
+
+.admin-user-index {
+  height: 80px;
+  width: 80%;
+  background-color: lightgrey;
+  p {
+    width: 15%;
+    display: inline-block;
+    padding: 20px 15px;
+    font-size: 1.8rem;
+  }
+  button {
+    margin: 20px 10px;
+    float: right;
+    display: inline-block;
+    background-color: lightgrey;
+    border: solid 1px #9F031B;
+    color: #9F031B;
+    &:hover {
+      background-color: #9F031B;
+      border: solid 1px #9F031B;
+      color: white;
+    }
+  }
+  form {
+    margin-left: 10%;
+    display: inline;
+    div {
+      vertical-align: top;
+      padding: 15px;
+      display: inline-block;
+      label {
+        display: block;
+      }
+      input {
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+}

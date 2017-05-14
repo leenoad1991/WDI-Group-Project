@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>All Users</h1>
+  <div ng-repeat="user in usersIndex.users track by $index" class="admin-user-index">
+    <p> {{ user.firstName }} {{ user.lastName }} </p>
+    <p> {{ user.email }} </p>
+    <form>
+      <div>
+        <label for="admin">Admin</label>
+        <input type="checkbox" name="admin" ng-model="user.privileges.admin">
+      </div>
+      <div>
+        <label for="admin">Add Stock</label>
+        <input type="checkbox" name="admin" ng-model="user.privileges.addStock">
+      </div>
+      <div>
+        <label for="admin">Stock View</label>
+        <input type="checkbox" name="admin" ng-model="user.privileges.stockView">
+      </div>
+      <div>
+        <label for="admin">User Edit</label>
+        <input type="checkbox" name="admin" ng-model="user.privileges.userCrud">
+      </div>
+    </form>
+    <button type="button" name="button" class="btn">Delete</button>
+    <button type="button" name="button" class="btn">Edit</button>
+  </div>
+</div>

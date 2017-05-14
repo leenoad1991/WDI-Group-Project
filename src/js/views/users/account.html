@@ -2,15 +2,22 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2 account-menu">
-          <h1 style="text-align: center;">Account</h1>
+        <h1 style="text-align: center;">Account</h1>
+        <ul>
+          <li><a ui-sref="account.watchlist">Watch List</a></li>
+          <li><a ui-sref="account.editProfile">Edit Profile</a></li>
+          <li><a ui-sref="account.paymentOptions">Payment Options</a></li>
+          <li><a ui-sref="account.orders">Orders</a></li>
+          <li><a ui-sref="account.admin">Admin</a></li>
           <ul>
-            <li><a ui-sref="account.watchlist">Watch List</a></li>
-            <li><a ui-sref="account.editProfile">Edit Profile</a></li>
-            <li><a ui-sref="account.paymentOptions">Payment Options</a></li>
+            <li><a ui-sref="account.users">Users</a></li>
+            <li><a ui-sref="account.orders">Stock</a></li>
+            <li><a ui-sref="account.orders">Add Stock</a></li>
             <li><a ui-sref="account.orders">Orders</a></li>
           </ul>
+        </ul>
       </div>
-      <div ui-view class="col-md-10">
+      <div ui-view class="col-md-10 view-expand">
       </div>
     </div>
   </div>
