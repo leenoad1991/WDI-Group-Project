@@ -11,18 +11,15 @@ function UsersIndexCtrl(UserFactory, $state) {
     vm.users = users;
   }).catch(err => console.log(err, 'error in user index controller'));
   vm.loggedIn = true;
-  vm.update = userUpdate;
+  vm.show = showUser;
 
-  function userUpdate($index) {
-    console.log('update firing');
-    console.log(vm.users[$index]);
+  function showUser(userId) {
     UserFactory
-      .update({ id: vm.users[$index]._id },
-      vm.users[$index])
+      .get({ id: userId })
       .$promise
       .then(() => {
-        $state.go('account.users');
-        console.log('users updated');
+        $state.go('account.user');
+        console.log('Showing User');
       });
   }
 }

@@ -93,6 +93,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: '/js/views/users/account/admin/index.html',
     controller: 'UsersIndexCtrl',
     controllerAs: 'usersIndex'
+  })
+  .state('account.userShow', {
+    url: '/admin/user/:id',
+    templateUrl: '/js/views/users/account/show.html',
+    controller: 'UsersShowCtrl',
+    controllerAs: 'usersShow'
   });
   $urlRouterProvider.otherwise('/');
 }

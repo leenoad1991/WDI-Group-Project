@@ -1,6 +1,22 @@
-<div class="">
-  <h1>All Users</h1>
-  <div ng-repeat="user in usersIndex.users track by $index" class="admin-user-index row">
+<h1>All Users</h1>
+  <table style="text-align: center;" class="table table-striped table-responsive table-">
+    <tr>
+      <th style="text-align: center;">#</th>
+      <th style="text-align: center;">NAME</th>
+      <th style="text-align: center;">EMAIL</th>
+      <th style="text-align: center;">ORDERS</th>
+      <th style="text-align: center;">VIEW</th>
+    </tr>
+  <tr ng-repeat="user in usersIndex.users track by $index">
+    <td>{{ $index }}</td>
+    <td>{{ user.firstName}} {{ user.lastName}}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.orders.past.length + user.orders.current.length }}</td>
+    <td><button type="button" name="button" class="btn" ui-sref="account.userShow({ id: user._id })">View</button></td>
+  </tr>
+</table>
+
+  <!-- <div ng-repeat="user in usersIndex.users track by $index" class="admin-user-index row">
     <div class="col-md-4">
       <p><strong> {{ user.firstName }} {{ user.lastName }}</strong> </p>
       <p> {{ user.email }} </p>
@@ -27,5 +43,4 @@
       <button type="button" name="button" class="btn">Delete</button>
       <button class="btn" value="Update" ng-click="usersIndex.update($index)">Update</button>
     </div>
-  </div>
-</div>
+  </div> -->
