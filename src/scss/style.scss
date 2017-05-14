@@ -114,3 +114,28 @@ body {
   border: solid 1px #9F031B;
   border-radius: 5px;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+}
+
+.modalButton {
+  float:none !important;
+  margin-right: 0 !important;
+}
+
+
+.modal-footer {
+text-align: center;
+}
+
+modal-title {
+  text-align: center;
+}

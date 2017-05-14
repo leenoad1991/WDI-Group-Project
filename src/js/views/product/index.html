@@ -20,9 +20,9 @@
       <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.products">
         <div class="card wines-card">
         <img ng-src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="image test">
-        <h4>{{ product.name }}</h4>
+        <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
         <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
-        <p>{{ product.info.type }}, {{ product.info.grape }}, {{ product.info.year }}</p>
+        <p>{{ product.info.type | limitTo: 25 }}{{ product.info.type.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
         <p>{{ product.location.region }}</p>
         </div>
       </div>
