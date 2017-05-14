@@ -1,10 +1,4 @@
 <h1>EDIT</h1>
-
-
-{{ userEdit.user }}
-{{ userEdit.currentUser }}
-
-
 <form ng-submit="userEdit.update()">
   <div class="form-group">
     <label for="name">First Name</label>
@@ -17,6 +11,23 @@
   <div class="form-group">
     <label for="location">Email</label>
     <input type="email" class="form-control" id="email" name="email" ng-model="userEdit.user.email">
+  </div>
+  <div class="form-group" ng-show="userEdit.user.privileges.admin">
+    <label for="Privileges"><h3>Privleges</h3></label>
+    <div class="container row">
+    <div class="col-md-2">
+     <label>Admin</label><input type="checkbox" class="checkbox" ng-model="userEdit.user.privileges.admin">
+    </div>
+    <div class="col-md-2">
+     <label>Add Stock</label><input type="checkbox" class="checkbox" ng-model="userEdit.user.privileges.addStock">
+    </div>
+    <div class="col-md-2">
+     <label>Stock View</label><input type="checkbox" class="checkbox" ng-model="userEdit.user.privileges.stockView">
+    </div>
+    <div class="col-md-2">
+     <label>User Crud</label><input type="checkbox" class="checkbox" ng-model="userEdit.user.privileges.userCrud">
+    </div>
+    </div>
   </div>
   <input type="submit" value="Update" class="btn btn-danger">
 </form>

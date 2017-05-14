@@ -54,6 +54,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'ProductsShowCtrl',
     controllerAs: 'productsShow'
   })
+  .state('productsEdit', {
+    url: '/wines/:id/edit',
+    templateUrl: '/js/views/product/edit.html',
+    controller: 'ProductsEditCtrl',
+    controllerAs: 'productsEdit'
+  })
   .state('account', {
     url: '/account',
     templateUrl: '/js/views/users/account.html'
