@@ -1,14 +1,31 @@
-<h1>products Index</h1>
 <div class="container">
+  <h1>Wines</h1>
   <div class="row">
-    <div class="col-md-4 card" ng-repeat="product in productsIndex.products">
-      <a ui-sref="productsShow({ id: product.id })">Name: {{ product.name }}</a> <br>
-      Info: {{ product.info }} <br>
-      Description: {{ product.description }} <br>
-      Location: {{ product.location }} <br>
-      Price: {{ product.price }} <br>
-      <img src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="">
-      <hr>
+    <div class="col-lg-2">
+      <div class="menu">
+        <form>
+          <h4>Search Options</h4>
+          <label>Type</label>
+          <input type="text" name="type">
+          <label>Year</label>
+          <input type="text" name="year">
+          <label>Price Range</label>
+          <input type="range" name="priceRange">
+          <br>
+          <input type="submit" name="" value="Search">
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.products">
+        <div class="card wines-card">
+        <img ng-src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="image test">
+        <h4>{{ product.name }}</h4>
+        <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
+        <p>{{ product.info.type }}, {{ product.info.grape }}, {{ product.info.year }}</p>
+        <p>{{ product.location.region }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
