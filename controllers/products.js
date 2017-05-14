@@ -5,7 +5,6 @@ function productsIndex(req, res) {
     .find()//((err, products) => {
     .exec()
     .then(products => {
-      // console.log('hitting productIndex', products);
       return res.status(200).json(products);
     })
     .catch(err => {
@@ -16,7 +15,7 @@ function productsIndex(req, res) {
 
 function productsShow(req, res) {
   Product.findById(req.params.id, (err, product) => {
-    console.log('hitting productsShow', product);
+    console.log('hitting productsShow on server side');
     if (err) return res.status(500).json({message: 'Something went wrong using productsShow controller on the server side.'});
     if (!product) return res.status(404).json({message: 'No product was found using productsShow controller on the server side.'});
     return res.status(200).json(product);
@@ -24,7 +23,8 @@ function productsShow(req, res) {
 }
 
 function productsUpdate(req, res) {
-  Product.findByIdAndUpdate(req.params.id, req.body.product, { new: true },  (err, product) => {
+  Product.findByIdAndUpdate(req.params.id, req.body, { new: true },  (err, product) => {
+    console.log('hitting productsUpdate on the server side');
     if (err) return res.status(500).json({ message: 'Something went wrong using productsUpdate on the server side.' });
     if (!product) return res.status(404).json({ message: 'Product not found using productsUpdate' });
     return res.status(200).json(product);

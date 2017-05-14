@@ -1,1 +1,11 @@
 <h1>products Show</h1>
+
+<img ng-src= "{{productsShow.product.labelImage}}" style="height:100px; width: 50px" alt="image test">
+<h4>{{ productsShow.product.name }}</h4>
+<p style="font-size:2rem;"><strong>£{{ productsShow.product.price.retail }}</strong></p>
+<p>{{ productsShow.product.info.type }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
+<p>{{ productsShow.product.location.region }}</p>
+<div class="bottom-buttons">
+          <a ui-sref="productsEdit({ id: productsShow.product._id })" class="btn btn-primary">Edit</a>
+          <a href="#" class="btn btn-primary" ng-click="vm.delete()">Delete</a>
+        </div>

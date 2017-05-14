@@ -20,9 +20,8 @@ router.route('/users/:id')
 // products routes
 router.route('/wines')
   .get(products.index);
-router.route('/wine/:id')
+router.route('/wines/:id')
   .get(products.show)
   .put(products.update);
-  // .get(product.show) //not sure if we are doing a delete;
 
 module.exports = router;
