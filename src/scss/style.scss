@@ -45,9 +45,9 @@ body {
 .navbar-nav {
   a {
     color: #f5f5f5 !important;
-  &:hover {
-    color: #129F00 !important;
-  }
+    &:hover {
+      color: #129F00 !important;
+    }
   }
 }
 .navbar-default .navbar-brand {
@@ -88,8 +88,8 @@ body {
 }
 
 .landing-page-content {
-    padding: 30px;
-    font-size: 1.9rem;
+  padding: 30px;
+  font-size: 1.9rem;
 }
 
 .footer {
@@ -133,7 +133,7 @@ body {
 
 
 .modal-footer {
-text-align: center;
+  text-align: center;
 }
 
 modal-title {
@@ -153,7 +153,7 @@ modal-title {
   background-color: lightgrey;
   p {
     margin-top: 25px;
-    width: 48%;
+    // width: 48%;
     display: inline-block;
     // padding: 20px 15px;
     font-size: 1.8rem;
@@ -188,4 +188,11 @@ modal-title {
       }
     }
   }
+}
+
+.header-label {
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+  text-decoration: underline;
 }

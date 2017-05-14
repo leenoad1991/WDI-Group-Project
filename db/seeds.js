@@ -20,7 +20,9 @@ User
     admin: true,
     stockView: true
   },
-  orders: [{ orderRef: '#1DADSD334', quanity: '4', product: 'Moet Champange', date: '14/05/2017', status: 'Out for deliverary'}, { orderRef: '#1DADSD334', quanity: '4', product: 'Moet Champange', date: '14/05/2017', status: 'Out for deliverary'}, { orderRef: '#1DADSD334', quanity: '4', product: 'Moet Champange', date: '14/05/2017', status: 'Out for deliverary'}]
+  orders: {
+    past: [{ orderRef: '#1DADSD334', quanity: '4', product: 'Moet Champange', date: '14/05/2017', status: 'Out for deliverary'}, { orderRef: '#1DADSD334', quanity: '4', product: 'Moet Champange', date: '14/05/2017', status: 'Out for deliverary'}, { orderRef: '#1DADSD334', quanity: '4', product: 'Moet Champange', date: '14/05/2017', status: 'Out for deliverary'}]
+  }
 }, {
   firstName: 'Lee',
   lastName: 'Noad',
