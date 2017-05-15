@@ -67,9 +67,14 @@ body {
     display: flex;
     width: 300px;
     padding-top: 50px;
+    height:125px;
+    width: 75px;
   }
 }
-
+img {
+  height:100px;
+  width: 75px;
+}
 
 .landing-page-hero-statement {
   text-align: center;
@@ -217,9 +222,11 @@ modal-title {
   }
 }
 .glyphicon-eye-open {
-  font-size: 25px;
-  margin-right: 75%;
-  margin-top: 5%;
+  font-size: 20px;
+  color: grey;
+  // margin-right: 75%;
+  // margin-top: 5%;
+
 }
 .label-spacing {
   label {
@@ -228,4 +235,17 @@ modal-title {
   input[type="range"] {
     margin-bottom: 15px;
   }
+}
+.left {
+  margin-top: 10px;
+  float: left;
+  width: 30%;
+}
+.right {
+    margin-top: 10px;
+  float: right;
+    width: 30%;
+}
+.watched {
+  color: green;
 }
