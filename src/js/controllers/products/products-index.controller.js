@@ -69,7 +69,3 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     console.log('running productsIndexCtrl', vm.products);
   }
 }
-
-
-//drop down type.
-//location search

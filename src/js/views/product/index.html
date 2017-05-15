@@ -49,6 +49,7 @@
 
         <div class="card wines-card">
           <div class="glyphicon glyphicon-eye-open" ng-click="productsIndex.watchClick(product._id, $index)"></div><br>
+          <div class="glyphicon glyphicon-eye-open"><p>{{ product.watchedBy.length}}</p></div><br>
           <a ui-sref="productsShow({ id: product._id })">
             <img ng-src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="image test">
             <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
