@@ -202,3 +202,11 @@ modal-title {
   margin-right: 75%;
   margin-top: 5%;
 }
+.label-spacing {
+  label {
+    margin: 10px 0;
+  }
+  input[type="range"] {
+    margin-bottom: 15px;
+  }
+}
