@@ -5,19 +5,47 @@
       <div class="menu">
         <form>
           <h4>Search Options</h4>
-          <label>Type</label>
-          <input type="text" name="type">
+          <div class="form-group">
+            <label>Type = {{productsIndex.type }}</label>
+            <select ng-model="productsIndex.type" class="form-control">
+              <option>All</option>
+              <option>Red</option>
+              <option>Rosé</option>
+              <option>White</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label >Country = {{productsIndex.country }}</label>
+            <select ng-model="productsIndex.country" class="form-control">
+              <option>All</option>
+              <option>France</option>
+              <option>New Zealand</option>
+              <option>Spain</option>
+              <option>Italy</option>
+              <option>Australia</option>
+              <option>Chile</option>
+              <option>South Africa</option>
+              <option>Argentina</option>
+              <option>USA</option>
+              <option>Portugal</option>
+              <option>Germany</option>
+            </select>
+          </div>
+
           <label>Year</label>
-          <input type="text" name="year">
-          <label>Price Range</label>
-          <input type="range" name="priceRange">
-          <br>
-          <input type="submit" name="" value="Search">
+          <input type="text" name="year" ng-model="productsIndex.year">
+          <div class="label-spacing">
+          <label>Price Min = £{{ productsIndex.minPriceRange }}</label>
+          <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.minPriceRange" >
+          <label>Price Max = £{{ productsIndex.maxPriceRange }}</label>
+          <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.maxPriceRange">
+          </div>
+          <input type="submit" name="" value="Search" ng-model="productsIndex.filtered">
         </form>
       </div>
     </div>
     <div class="col-lg-10">
-      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.products">
+      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered">
         <a ui-sref="productsShow({ id: product._id })"><div class="card wines-card">
           <img ng-src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="image test">
           <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
