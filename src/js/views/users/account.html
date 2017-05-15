@@ -1,16 +1,23 @@
 <div class="container">
   <div class="container">
     <div class="row">
-      <div class="col-md-2 account-menu">
-          <h1 style="text-align: center;">Account</h1>
-          <ul>
-            <li><a ui-sref="account.watchlist">Watch List</a></li>
-            <li><a ui-sref="account.editProfile">Edit Profile</a></li>
-            <li><a ui-sref="account.paymentOptions">Payment Options</a></li>
+      <div class="col-md-2 account-menu" ng-controller="MainCtrl as main">
+        <h1 style="text-align: center;">Account</h1>
+        <ul>
+          <li><a ui-sref="account.watchlist">Watch List</a></li>
+          <li><a ui-sref="account.editProfile">Edit Profile</a></li>
+          <li><a ui-sref="account.paymentOptions">Payment Options</a></li>
+          <li><a ui-sref="account.orders">Orders</a></li>
+          <li ng-show="main.user.privileges.admin"><a ui-sref="account.admin">Admin</a></li>
+          <ul ng-show="main.user.privileges.admin">
+            <li><a ui-sref="account.users">Users</a></li>
+            <li><a ui-sref="account.orders">Stock</a></li>
+            <li><a ui-sref="account.orders">Add Stock</a></li>
             <li><a ui-sref="account.orders">Orders</a></li>
           </ul>
+        </ul>
       </div>
-      <div ui-view class="col-md-10">
+      <div ui-view class="col-md-10 view-expand">
       </div>
     </div>
   </div>

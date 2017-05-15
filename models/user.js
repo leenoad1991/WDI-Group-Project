@@ -4,15 +4,16 @@ const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 //validates the form in put (i.e. email has an @)
 const validator = require('validator');
-
+//ref models
+const Schema = mongoose.Schema;
 //user model
 const userSchema = new mongoose.Schema({
   firstName: { type: String, trim: true, required: true },
   lastName: { type: String, trim: true, required: true },
   email: { type: String, trim: true, required: true },
   passwordHash: { type: String, required: true },
-  watching: { type: Array },
-  basket: { type: Array },
+  watching: [{ type: Schema.Types.ObjectId, ref: 'watching' }],
+  basket: [{ type: Schema.Types.ObjectId, ref: 'basket' }],
   orders: {
     past: { type: Array },
     current: { type: Array }

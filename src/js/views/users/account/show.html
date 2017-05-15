@@ -1,1 +1,112 @@
 <h1>SHOW USER</h1>
+<div class="row">
+  <div class="col-md-6">
+    <h3> User Information </h3>
+    <table class="table table-striped table-responsive table-sm">
+      <tr>
+        <th style="text-align: left;">NAME</th>
+        <td>{{ usersShow.user.firstName}} {{ usersShow.user.lastName}}</td>
+      </tr>
+      <tr>
+        <th style="text-align: left; width: 200px; border: 0 1px 0 0 solid black">EMAIL</th>
+        <td>{{ usersShow.user.email }}</td>
+      </tr>
+      <tr>
+        <th style="text-align: left;">ACCOUNT CREATION</th>
+        <td>To be entered</td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h3>Privileges</h3>
+    <table class="table table-striped table-responsive table-sm">
+      <tr>
+        <th style="text-align: center;">ADMIN</th>
+        <th style="text-align: center;">VIEW STOCK</th>
+        <th style="text-align: center;">ADD STOCK</th>
+        <th style="text-align: center;">USER C/R/U/D</th>
+      </tr>
+      <tr style="text-align: center;">
+        <td>{{ usersShow.user.privileges.admin }}</td>
+        <td>{{ usersShow.user.privileges.stockView }}</td>
+        <td>{{ usersShow.user.privileges.addStock }}</td>
+        <td>{{ usersShow.user.privileges.userCRUD }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3> Orders </h3>
+    <h4> Current Orders </h4>
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th>#ORDER REF</th>
+        <th>DATE</th>
+        <th>QUANTITY</th>
+        <th>PRODUCT</th>
+        <th>STATUS</th>
+      </tr>
+      <tr ng-repeat="order in usersShow.user.orders.current">
+        <td>{{order.orderRef}}</td>
+        <td>{{ order.date }}</td>
+        <td>{{ order.quanity }}</td>
+        <td>{{ order.product }}</td>
+        <td>{{ order.status }}</td>
+      </tr>
+    </table>
+    <h4> Past Orders </h4>
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th>#ORDER REF</th>
+        <th>DATE</th>
+        <th>QUANTITY</th>
+        <th>PRODUCT</th>
+        <th>STATUS</th>
+      </tr>
+      <tr ng-repeat="order in usersShow.user.orders.past">
+        <td>{{order.orderRef}}</td>
+        <td>{{ order.date }}</td>
+        <td>{{ order.quanity }}</td>
+        <td>{{ order.product }}</td>
+        <td>{{ order.status }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-12">
+      <h3> Basket </h3>
+      <table class="table table-striped table-responsive">
+        <tr>
+          <th>#REF</th>
+          <th>PRODUCT</th>
+          <th>START DATE</th>
+          <th>LIVE PRICE</th>
+          <th>RETAIL PRICE</th>
+        </tr>
+        <tr ng-repeat="order in usersShow.user.orders.past">
+          <td>{{order.orderRef}}</td>
+          <td>{{ order.date }}</td>
+          <td>{{ order.quanity }}</td>
+          <td>{{ order.product }}</td>
+          <td>{{ order.status }}</td>
+        </tr>
+      </table>
+      <h3> Watching </h3>
+      <table class="table table-striped table-responsive">
+        <tr>
+          <th>#REF</th>
+          <th>PRODUCT</th>
+          <th>START DATE</th>
+          <th>LIVE PRICE</th>
+          <th>RETAIL PRICE</th>
+        </tr>
+        <tr ng-repeat="order in usersShow.user.orders.past">
+          <td>{{order.orderRef}}</td>
+          <td>{{ order.date }}</td>
+          <td>{{ order.quanity }}</td>
+          <td>{{ order.product }}</td>
+          <td>{{ order.status }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
