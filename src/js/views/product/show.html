@@ -1,4 +1,4 @@
-<div ng-show="!productsShow.product" class="container">
+<div ng-show="productsShow.product" class="container">
 <h1>products Show</h1>
 <img ng-src= "{{productsShow.product.labelImage}}" style="height:100px; width: 50px" alt="image test">
 <h4>{{ productsShow.product.name }}</h4>
@@ -11,6 +11,6 @@
 </div>
 </div>
 
-<div ng-show="productsShow.product" class="container">
+<div ng-show="!productsShow.product" class="container">
   <h1> 404 - Wine not found </h1>
 </div>

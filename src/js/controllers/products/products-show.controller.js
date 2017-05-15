@@ -2,8 +2,8 @@ angular
   .module('wineApp')
   .controller('ProductsShowCtrl', ProductsShowCtrl);
 
-ProductsShowCtrl.$inject = ['Product', '$stateParams', '$state'];
-function ProductsShowCtrl(Product, $stateParams, $state) {
+ProductsShowCtrl.$inject = ['Product', '$stateParams', '$state', 'CurrentUserService'];
+function ProductsShowCtrl(Product, $stateParams, $state, CurrentUserService) {
   console.log('hitting ProductsShowCtrl');
   console.log($stateParams.id);
   const vm = this;
@@ -12,6 +12,7 @@ function ProductsShowCtrl(Product, $stateParams, $state) {
   console.log(vm.product);
 
   vm.delete = productsDelete;
+  
 
   function productsDelete(){
     console.log('deleting');

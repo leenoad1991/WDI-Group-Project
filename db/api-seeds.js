@@ -32,7 +32,7 @@ request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b534
       price: {
         min: x.PriceMin,
         max: x.PriceMax,
-        livePrice: 0.00,
+        livePrice: x.PriceRetail,
         retail: x.PriceRetail
       }
     }).then(products => {
