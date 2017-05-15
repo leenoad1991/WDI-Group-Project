@@ -82,6 +82,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'UserOrdersCtrl',
     controllerAs: 'userOrders'
   })
+  .state('account.ordersAll', {
+    url: '/admin/orders/all',
+    templateUrl: '/js/views/users/account/admin/all-orders.html',
+    controller: 'AllOrdersCtrl',
+    controllerAs: 'allOrders'
+  })
   .state('account.users', {
     url: '/admin/users',
     templateUrl: '/js/views/users/account/admin/user-index.html',
