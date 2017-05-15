@@ -1,4 +1,6 @@
 const mongoose  = require('mongoose');
+const Schema = mongoose.Schema;
+
 
 const productSchema = new mongoose.Schema({
   name: { type: String, trim: true, required: true },
@@ -18,9 +20,10 @@ const productSchema = new mongoose.Schema({
   price: {
     min: { type: Number },
     max: { type: Number },
-    livePrice: { type: Number },
+    livePrice: { type: Number, default: this.retail},
     retail: { type: Number }
-  }
+  },
+  watchedBy: [{type: Schema.Types.ObjectId, ref: 'watchedBy' }]
 });
 
 module.exports = mongoose.model('Product', productSchema);
