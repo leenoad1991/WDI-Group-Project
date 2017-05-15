@@ -129,15 +129,32 @@ body {
 .modalButton {
   float:none !important;
   margin-right: 0 !important;
+  margin-top: 8px !important;
+  // margin-right: 50px !important;
+  padding: 10px 28px !important;
+  border: solid 1px #9F031B !important;
+  background-color: #f5f5f5 !important;
+  color: #9F031B !important;
+  border-radius: 5px !important;
+  // float: right !important;
+
+  &:hover {
+    background-color: #9F031B !important;
+    color: #f5f5f5 !important;
+  }
+  &:focus {
+    display: none !important;
+  }
 }
 
 
 .modal-footer {
-  text-align: center;
+  text-align: center !important;
 }
 
 modal-title {
   text-align: center;
+  margin-left: 100px !important;
 }
 
 
@@ -229,4 +246,11 @@ modal-title {
   input[type="range"] {
     margin-bottom: 15px;
   }
+}
+
+.input-group {
+  span {
+    position: static !important;
+  }
+  margin-bottom: 10px;
 }

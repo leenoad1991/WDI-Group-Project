@@ -26,11 +26,28 @@
           </div>
           <div class="modal-body">
             <form ng-submit="register.register()" action="/wines" >
-              <p><input type="text" ng-model="register.user.firstName" placeholder="First name"></p>
-              <p><input type="text" ng-model="register.user.lastName" placeholder="Second name"></p>
-              <p><input type="text" ng-model="register.user.email" placeholder="Email"></p>
-              <p><input type="password" ng-model="register.user.password" placeholder="Password"></p>
-              <p><input type="password" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation"></p>
+
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                <input ng-model="register.user.firstName" type="text" class="form-control" placeholder="First name" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                <input ng-model="register.user.lastName" type="text" class="form-control" placeholder="Last name" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-globe" id="basic-addon1"></span>
+                <input ng-model="register.user.email" type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-option-horizontal" id="basic-addon1"></span>
+                <input ng-model="register.user.password" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-option-horizontal" id="basic-addon1"></span>
+                <input ng-model="register.user.passwordConfirmation" type="text" class="form-control" placeholder="Confirm password" aria-describedby="basic-addon1">
+              </div>
+
               <div class="modal-footer">
                 <input type="submit" class="btn btn-primary modalButton" value="Create">
                 <button type="button" class="btn btn-default modalButton"  data-dismiss="modal">Close</button>
@@ -39,72 +56,83 @@
           </div>
         </div>
       </div>
-      </div>
-
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalLogin">Login
-      </button>
-      <div ng-controller="LoginCtrl as login" class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabelLogin">Login</h4>
-            </div>
-            <div class="modal-body">
-              <form ng-submit="login.login()" action="/wines" >
-                <p><input ng-model="login.user.email" type="text" placeholder="Email"></p>
-                <p><input ng-model="login.user.password"type="password" placeholder="Password"></p>
-                <div class="modal-footer">
-                  <input type="submit" class="btn btn-primary modalButton" value="Enter">
-                  <button type="button" class="btn btn-default modalButton" data-dismiss="modal">Close</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        </div>
-      </nav>
-      <nav ng-show="main.user" class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" ui-sref="home">WineEx</a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <form class="navbar-form navbar-left">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-              <li> Welcome back, {{ main.user.firstName }} </li>
-              <li><a ui-sref="basket">Basket</a></li>
-              <li><a ui-sref="account">Account</a></li>
-              <form class="navbar-form navbar-right">
-                <button type="button" ng-click="main.logout()" class="btn btn-default">Logout</button>
-              </form>
-            </ul>
-          </div>
-        </div>
-      </nav>
     </div>
-    <body>
+
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalLogin">Login
+    </button>
+    <div ng-controller="LoginCtrl as login" class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabelLogin">Login</h4>
+          </div>
+          <div class="modal-body">
+            <form ng-submit="login.login()" action="/wines" >
+
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-globe" id="basic-addon1"></span>
+                <input ng-model="login.user.email"  type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-option-horizontal" id="basic-addon1" ></span>
+                <input ng-model="login.user.password" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+              </div>
 
 
-      <main ui-view>
-      </main>
-    </body>
-    <footer>
-      <nav class="footer">
-        <div class="container">
-          <p>ABOUT | T&C'S </p>
+
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-primary modalButton" value="Enter">
+                <button type="button" class="btn btn-default modalButton" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </nav>
-    </footer>
-    </html>
+      </div>
+    </div>
+  </nav>
+  <nav ng-show="main.user" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home">WineEx</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li> Welcome back, {{ main.user.firstName }} </li>
+          <li><a ui-sref="basket">Basket</a></li>
+          <li><a ui-sref="account">Account</a></li>
+          <form class="navbar-form navbar-right">
+            <button type="button" ng-click="main.logout()" class="btn btn-default">Logout</button>
+          </form>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<body>
+
+
+  <main ui-view>
+  </main>
+</body>
+<footer>
+  <nav class="footer">
+    <div class="container">
+      <p>ABOUT | T&C'S </p>
+    </div>
+  </nav>
+</footer>
+</html>
