@@ -46,7 +46,6 @@
     </div>
     <div class="col-lg-10">
       <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
-
         <div class="card wines-card">
           <div class="glyphicon glyphicon-eye-open" ng-click="productsIndex.watchClick(product._id, $index)"></div><br>
           <div class="glyphicon glyphicon-eye-open"><p>{{ product.watchedBy.length}}</p></div><br>
