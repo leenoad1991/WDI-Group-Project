@@ -16,5 +16,3 @@ request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b534
   });
   console.log(body.length);
 });
-// response = body.Products.List[0];
-// console.log(response.Name);
