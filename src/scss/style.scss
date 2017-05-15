@@ -122,7 +122,7 @@ body {
   transform: translate(-50%, -50%);
   width: 600px;
   max-width: 100%;
-  height: 400px;
+  height: 480px;
   max-height: 100%;
 }
 
@@ -154,7 +154,12 @@ body {
 
 modal-title {
   text-align: center;
-  margin-left: 100px !important;
+  // margin-left: 12px !important;
+}
+
+h4 {
+  margin-left: 120px !important;
+  font-size: 28px;
 }
 
 
@@ -253,4 +258,18 @@ modal-title {
     position: static !important;
   }
   margin-bottom: 10px;
+}
+
+.loginButton {
+  font-size: 16px;
+  float: left;
+  display: inline-block;
+  background-color: lightgrey;
+  border: solid 1px #9F031B;
+  color: #9F031B;
+  &:hover {
+    background-color: #9F031B;
+    border: solid 1px #9F031B;
+    color: white;
+  }
 }

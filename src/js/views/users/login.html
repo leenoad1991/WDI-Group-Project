@@ -1,8 +1,15 @@
 <div class="container">
-  <h1>LOGIN</h1>
+  <h2>Login</h2>
   <form class="form-group" ng-submit="login.login()">
-    <input type="email" name="email" ng-model="login.user.email" placeholder="Enter email">
-    <input type="password" name="password" ng-model="login.user.password" placeholder="Enter password">
-    <input type="submit" value="Submit">
+
+    <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-globe" id="basic-addon1"></span>
+      <input ng-model="login.user.email" type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+  <span class="input-group-addon glyphicon glyphicon-option-horizontal" id="basic-addon1"></span>
+  <input ng-model="login.user.password" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+</div>
+    <input type="submit" value="Submit" class="loginButton">
   </form>
 </div>
