@@ -111,6 +111,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: '/js/views/users/account/admin/stock-edit.html',
     controller: 'StockEditCtrl',
     controllerAs: 'stockEdit'
+  })
+  .state('account.stockAdd', {
+    url: '/admin/stock/add',
+    templateUrl: '/js/views/users/account/admin/stock-add.html',
+    controller: 'StockAddCtrl',
+    controllerAs: 'stockAdd'
   });
   $urlRouterProvider.otherwise('/');
 }

@@ -1,12 +1,14 @@
 <h1> Watchlist </h1>
 <div class="row">
-
-
 <div class="col-lg-12">
   <div class="col-md-4 col-sm-6" ng-repeat="product in watchlist.user.watching track by $index">
+    <a ui-sref="productsShow({ id: product._id })">
     <div class="card wines-card">
-      <div class="glyphicon glyphicon-eye-open" ng-click="productsIndex.watchClick(product._id)"></div><br>
-      <a ui-sref="productsShow({ id: product._id })">
+      <div>
+        <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
+        <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
+        <span class="glyphicon glyphicon-eye-open right"></span>
+      </div>
         <img ng-src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="image test">
         <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
         <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>

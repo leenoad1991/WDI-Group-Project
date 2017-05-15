@@ -50,9 +50,12 @@
   <div class="col-lg-10">
     <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
       <div class="card wines-card">
-        <div class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></div>
-        <div class="right">{{ product.watchedBy.length}}<span class="glyphicon glyphicon-eye-open right"></span></div>
-        <div style="margin-top: 60px; text-align: center">
+        <div>
+          <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
+          <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
+          <span class="glyphicon glyphicon-eye-open right"></span>
+        </div>
+        <div style="margin-top: 25px; text-align: center">
           <a ui-sref="productsShow({ id: product._id })">
             <!-- {{ product.watchedBy.indexOf(vm.user._id) }} -->
             <img ng-src= "{{product.labelImage}}" alt="image test">

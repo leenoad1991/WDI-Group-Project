@@ -67,14 +67,12 @@ body {
     display: flex;
     width: 300px;
     padding-top: 50px;
-    height:125px;
-    width: 75px;
   }
 }
-img {
-  height:100px;
-  width: 75px;
-}
+// img {
+//   height:100px;
+//   width: 75px;
+// }
 
 .landing-page-hero-statement {
   text-align: center;
@@ -118,6 +116,15 @@ img {
   box-sizing: border-box;
   border: solid 1px #9F031B;
   border-radius: 5px;
+}
+
+.wines-card-watching-text {
+  position: relative;
+  left: 25%;
+  display: inline-block;
+  margin-top: 4%;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .modal {
@@ -265,10 +272,9 @@ modal-title {
   width: 30%;
 }
 .right {
-  padding: 4px;
-    margin-top: 10px;
-    float: right;
-    width: 30%;
+  margin-top: 10px;
+  float: right;
+  width: 30%;
 }
 .watched {
   color: green;
