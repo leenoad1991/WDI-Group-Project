@@ -12,8 +12,8 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, trim: true, required: true },
   email: { type: String, trim: true, required: true },
   passwordHash: { type: String, required: true },
-  watching: [{ type: Schema.Types.ObjectId, ref: 'watching' }],
-  basket: [{ type: Schema.Types.ObjectId, ref: 'basket' }],
+  watching: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+  basket: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
   orders: {
     past: { type: Array },
     current: { type: Array }

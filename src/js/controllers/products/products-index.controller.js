@@ -9,15 +9,19 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   vm.user = CurrentUserService.currentUser;
 
   vm.watchClick = watchClick;
+  vm.year = '';
 
-  vm.all = Product.query();
+  function getProducts() {
+    vm.all = Product.query();
+  }
+  getProducts();
   vm.minPriceRange = 10;
   vm.maxPriceRange = 85;
 
   vm.filtered = vm.products;
 
   function filterProduct() {
-    const params = { name: vm.q };
+    const params = {};
     params.info = { type: vm.type };
     // params.price = { retail: vm.maxPriceRange };
     params.info = { year: vm.year };

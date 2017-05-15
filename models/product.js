@@ -1,4 +1,5 @@
 const mongoose  = require('mongoose');
+const User = require('../models/user');
 const Schema = mongoose.Schema;
 
 
@@ -20,10 +21,10 @@ const productSchema = new mongoose.Schema({
   price: {
     min: { type: Number },
     max: { type: Number },
-    livePrice: { type: Number, default: this.retail},
-    retail: { type: Number }
+    retail: { type: Number },
+    livePrice: { type: Number}
   },
-  watchedBy: [{type: Schema.Types.ObjectId, ref: 'watchedBy' }]
+  watchedBy: [{type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 module.exports = mongoose.model('Product', productSchema);
