@@ -16,51 +16,53 @@
             </select>
           </div>
           <!-- ```<select class="form-control" name="landlord" id="landlord" ng-options="user as user.firstName + ' ' + user.lastName for user in vm.landlords track by user.id" ng-model="vm.property.landlord" required>
-  <option value="" disabled selected style="display: none;">Please Select</option>
-</select>``` -->
-          <div class="form-group">
-            <label >Country = {{productsIndex.country }}</label>
-            <select ng-model="productsIndex.country" class="form-control">
-              <option>All</option>
-              <option>France</option>
-              <option>New Zealand</option>
-              <option>Spain</option>
-              <option>Italy</option>
-              <option>Australia</option>
-              <option>Chile</option>
-              <option>South Africa</option>
-              <option>Argentina</option>
-              <option>USA</option>
-              <option>Portugal</option>
-              <option>Germany</option>
-            </select>
-          </div>
-          <label>Year</label>
-          <input type="text" name="year" ng-model="productsIndex.year">
-          <div class="label-spacing">
-            <label>Price Min = £{{ productsIndex.minPriceRange }}</label>
-            <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.minPriceRange" >
-            <label>Price Max = £{{ productsIndex.maxPriceRange }}</label>
-            <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.maxPriceRange">
-          </div>
-          <input type="submit" name="" value="Search" ng-model="productsIndex.filtered">
-        </form>
-      </div>
+          <option value="" disabled selected style="display: none;">Please Select</option>
+        </select>``` -->
+        <div class="form-group">
+          <label >Country = {{productsIndex.country }}</label>
+          <select ng-model="productsIndex.country" class="form-control">
+            <option>All</option>
+            <option>France</option>
+            <option>New Zealand</option>
+            <option>Spain</option>
+            <option>Italy</option>
+            <option>Australia</option>
+            <option>Chile</option>
+            <option>South Africa</option>
+            <option>Argentina</option>
+            <option>USA</option>
+            <option>Portugal</option>
+            <option>Germany</option>
+          </select>
+        </div>
+        <label>Year</label>
+        <input type="text" name="year" ng-model="productsIndex.year">
+        <div class="label-spacing">
+          <label>Price Min = £{{ productsIndex.minPriceRange }}</label>
+          <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.minPriceRange" >
+          <label>Price Max = £{{ productsIndex.maxPriceRange }}</label>
+          <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.maxPriceRange">
+        </div>
+        <input type="submit" name="" value="Search" ng-model="productsIndex.filtered">
+      </form>
     </div>
-    <div class="col-lg-10">
-      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
-        <div class="card wines-card">
-          <div class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></div>
-          <div class="glyphicon glyphicon-eye-open right"><p>{{ product.watchedBy.length}}</p></div>
+  </div>
+  <div class="col-lg-10">
+    <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
+      <div class="card wines-card">
+        <div class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></div>
+        <div class="right">{{ product.watchedBy.length}}<span class="glyphicon glyphicon-eye-open right"></span></div>
+        <div style="margin-top: 60px; text-align: center">
           <a ui-sref="productsShow({ id: product._id })">
             <!-- {{ product.watchedBy.indexOf(vm.user._id) }} -->
-            {{ vm.user  }}
             <img ng-src= "{{product.labelImage}}" alt="image test">
             <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
             <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
             <p>{{ product.info.type | limitTo: 25 }}{{ product.info.type.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
             <p>{{ product.location.region }}</p>
-          </div></a>
+          </a></div>
         </div>
       </div>
     </div>
+  </div>
+<div>
