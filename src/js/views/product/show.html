@@ -1,4 +1,4 @@
-<div ng-show="!productsShow.product" class="container">
+<div ng-show="productsShow.active" class="container">
 <h1>products Show</h1>
 <img ng-src= "{{productsShow.product.labelImage}}" style="height:100px; width: 50px" alt="image test">
 <h4>{{ productsShow.product.name }}</h4>
@@ -10,7 +10,6 @@
   <a href="#" class="btn btn-primary" ng-click="productsShow.delete()">Delete</a>
 </div>
 </div>
-
-<div ng-show="productsShow.product" class="container">
+<div ng-show="!productsShow.active" class="container">
   <h1> 404 - Wine not found </h1>
 </div>
