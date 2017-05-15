@@ -105,6 +105,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: '/js/views/users/account/admin/stock-show.html',
     controller: 'StockShowCtrl',
     controllerAs: 'stockShow'
+  })
+  .state('account.stockEdit', {
+    url: '/admin/stock/all/:id/edit',
+    templateUrl: '/js/views/users/account/admin/stock-edit.html',
+    controller: 'StockEditCtrl',
+    controllerAs: 'stockEdit'
   });
   $urlRouterProvider.otherwise('/');
 }

@@ -1,7 +1,7 @@
 <div class="stock-header">
   <h1>Product</h1>
-  <a ui-sref="productsEdit({ id: stockShow.product._id })" class="btn button-general">Edit</a>
-  <a href="#" class="btn button-general" ng-click="vm.delete()">Delete</a>
+  <a ui-sref="account.stockEdit({ id: stockShow.product._id })" class="btn button-general">Edit</a>
+  <a href="#" class="btn button-general" ng-click="stockShow.delete(stockShow.product._id)">Delete</a>
 </div>
 
 <table class="table table-striped table-responsive table-sm">

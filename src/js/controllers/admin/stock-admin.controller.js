@@ -10,7 +10,7 @@ function StockViewCtrl(Product) {
     vm.products = Product.query().$promise.then(data => {
       let processedProducts = 0;
       data.forEach(product => {
-        product.price.deviation = parseInt(product.price.retail/product.price.livePrice*100);
+        product.price.deviation = parseInt(product.price.livePrice/product.price.retail*100);
         processedProducts++;
         if (processedProducts === data.length) {
           vm.products = data;

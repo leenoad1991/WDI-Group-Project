@@ -1,0 +1,60 @@
+<h1> PRODUCT EDIT </h1>
+<form ng-submit="stockEdit.update()">
+  <div class="form-group">
+    <label for="product.name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" ng-model="stockEdit.product.name">
+  </div>
+  <div class="form-group">
+    <label for="product.info.type">Type</label>
+    <input type="text" class="form-control" id="product.info.type" name="product.info.type" ng-model="stockEdit.product.info.type">
+  </div>
+  <div class="form-group">
+    <label for="product.info.grape">Grape</label>
+    <input type="text" class="form-control" id="product.info.grape" name="product.info.grape" ng-model="stockEdit.product.info.grape">
+  </div>
+  <div class="form-group">
+    <label for="product.info.year">Year</label>
+    <input type="text" class="form-control" id="product.info.year" name="product.info.year" ng-model="stockEdit.product.info.year">
+  </div>
+  <div class="form-group">
+    <label for="product.description">Description</label>
+    <input type="text" class="form-control" id="product.description" name="product.description" ng-model="stockEdit.product.description">
+  </div>
+  <div class="form-group">
+    <label for="product.labelImage">Image</label>
+    <input type="text" class="form-control" id="product.labelImage" name="product.labelImage" ng-model="stockEdit.product.labelImage">
+  </div>
+  <div class="form-group">
+    <label for="product.location.country">Location: Country</label>
+    <input type="text" class="form-control" id="product.location.country" name="product.location.country" ng-model="stockEdit.product.location.country">
+  </div>
+  <div class="form-group">
+    <label for="product.location.region">Location: Region</label>
+    <input type="text" class="form-control" id="product.location.region" name="product.location.region" ng-model="stockEdit.product.location.region">
+  </div>
+  <div class="form-group">
+    <label for="product.location.lat">Location: Lat</label>
+    <input type="text" class="form-control" id="product.location.lat" name="product.location.lat" ng-model="stockEdit.product.location.lat">
+  </div>
+  <div class="form-group">
+    <label for="product.location.lng">Location: Lat</label>
+    <input type="text" class="form-control" id="product.location.lng" name="product.location.lng" ng-model="stockEdit.product.location.lng">
+  </div>
+  <div class="form-group">
+    <label for="product.price.min">Price: Min</label>
+    <input type="text" class="form-control" id="product.price.min" name="product.price.min" ng-model="stockEdit.product.price.min">
+  </div>
+  <div class="form-group">
+    <label for="product.price.max">Price: Max</label>
+    <input type="text" class="form-control" id="product.price.max" name="product.price.max" ng-model="stockEdit.product.price.max">
+  </div>
+  <div class="form-group">
+    <label for="product.price.livePrice">Price: LivePrice</label>
+    <input type="text" class="form-control" id="product.price.livePrice" name="product.price.livePrice" ng-model="stockEdit.product.price.livePrice">
+  </div>
+  <div class="form-group">
+    <label for="product.price.retail">Price: Retail</label>
+    <input type="text" class="form-control" id="product.price.retail" name="product.price.retail" ng-model="stockEdit.product.price.retail">
+  </div>
+  <input type="submit" class="btn btn-default btn-block" value="Save">
+</form>
