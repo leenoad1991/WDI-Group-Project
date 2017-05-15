@@ -19,7 +19,9 @@ router.route('/users/:id')
 
 // products routes
 router.route('/wines')
-  .get(products.index);
+  .get(products.index)
+  .post(products.create);
+  
 router.route('/wines/:id')
   .get(products.show)
   .put(products.update)

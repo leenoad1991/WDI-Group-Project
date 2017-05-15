@@ -1,61 +1,70 @@
 <h1> Add Stock </h1>
-<h1> PRODUCT EDIT </h1>
 <form ng-submit="stockAdd.create()">
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="product.name">Name</label>
     <input type="text" class="form-control" id="name" name="name" ng-model="stockAdd.product.name">
   </div>
-  <div class="form-group">
-    <label for="product.info.type">Type</label>
-    <input type="text" class="form-control" id="product.info.type" name="product.info.type" ng-model="stockAdd.product.info.type">
-  </div>
-  <div class="form-group">
-    <label for="product.info.grape">Grape</label>
-    <input type="text" class="form-control" id="product.info.grape" name="product.info.grape" ng-model="stockAdd.product.info.grape">
-  </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="product.info.year">Year</label>
     <input type="text" class="form-control" id="product.info.year" name="product.info.year" ng-model="stockAdd.product.info.year">
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-12">
     <label for="product.description">Description</label>
-    <input type="text" class="form-control" id="product.description" name="product.description" ng-model="stockAdd.product.description">
+    <textarea class="form-control" rows="4" id="product.description" name="product.description" ng-model="stockAdd.product.description"></textarea>
   </div>
-  <div class="form-group">
-    <label for="product.labelImage">Image</label>
-    <input type="text" class="form-control" id="product.labelImage" name="product.labelImage" ng-model="stockAdd.product.labelImage">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="product.info.type">Type</label>
+      <input type="text" class="form-control" id="product.info.type" name="product.info.type" ng-model="stockAdd.product.info.type">
+    </div>
+    <div class="form-group">
+      <label for="product.info.grape">Grape</label>
+      <input type="text" class="form-control" id="product.info.grape" name="product.info.grape" ng-model="stockAdd.product.info.grape">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="product.location.country">Location: Country</label>
-    <input type="text" class="form-control" id="product.location.country" name="product.location.country" ng-model="stockAdd.product.location.country">
+  <div class="col-md-6">
+    <div class="form-group col-md-6">
+      <label for="product.location.country">Location: Country</label>
+      <input type="text" class="form-control" id="product.location.country" name="product.location.country" ng-model="stockAdd.product.location.country">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="product.location.region">Location: Region</label>
+      <input type="text" class="form-control" id="product.location.region" name="product.location.region" ng-model="stockAdd.product.location.region">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="product.location.region">Location: Region</label>
-    <input type="text" class="form-control" id="product.location.region" name="product.location.region" ng-model="stockAdd.product.location.region">
+  <div class="col-md-6">
+    <div class="form-group col-md-6">
+      <label for="product.location.lat">Location: Lat</label>
+      <input type="text" class="form-control" id="product.location.lat" name="product.location.lat" ng-model="stockAdd.product.location.lat">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="product.location.lng">Location: Lat</label>
+      <input type="text" class="form-control" id="product.location.lng" name="product.location.lng" ng-model="stockAdd.product.location.lng">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="product.location.lat">Location: Lat</label>
-    <input type="text" class="form-control" id="product.location.lat" name="product.location.lat" ng-model="stockAdd.product.location.lat">
-  </div>
-  <div class="form-group">
-    <label for="product.location.lng">Location: Lat</label>
-    <input type="text" class="form-control" id="product.location.lng" name="product.location.lng" ng-model="stockAdd.product.location.lng">
-  </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     <label for="product.price.min">Price: Min</label>
     <input type="text" class="form-control" id="product.price.min" name="product.price.min" ng-model="stockAdd.product.price.min">
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     <label for="product.price.max">Price: Max</label>
     <input type="text" class="form-control" id="product.price.max" name="product.price.max" ng-model="stockAdd.product.price.max">
   </div>
-  <div class="form-group">
-    <label for="product.price.livePrice">Price: LivePrice</label>
-    <input type="text" class="form-control" id="product.price.livePrice" name="product.price.livePrice" ng-model="stockAdd.product.price.livePrice">
+  <div class="col-md-6">
+    <div class="form-group col-md-6">
+      <label for="product.price.livePrice">Price: Starting Live Price</label>
+      <input type="text" class="form-control" id="product.price.livePrice" name="product.price.livePrice" ng-model="stockAdd.product.price.livePrice">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="product.price.retail">Price: Retail</label>
+      <input type="text" class="form-control" id="product.price.retail" name="product.price.retail" ng-model="stockAdd.product.price.retail">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="product.price.retail">Price: Retail</label>
-    <input type="text" class="form-control" id="product.price.retail" name="product.price.retail" ng-model="stockAdd.product.price.retail">
+  <div class="form-group col-md-12">
+    <label for="product.labelImage">Image</label>
+    <input type="text" class="form-control" id="product.labelImage" name="product.labelImage" ng-model="stockAdd.product.labelImage">
   </div>
-  <input type="submit" class="btn btn-default btn-block" value="Save">
+  <div style="text-align: center;">
+    <input type="submit" class="btn button-general-large" value="Save">
+  </div>
 </form>

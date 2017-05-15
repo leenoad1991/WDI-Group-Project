@@ -1,16 +1,16 @@
 const Product =  require('../models/product');
 
 function productsIndex(req, res) {
-  Product
-    .find()//((err, products) => {
-    .exec()
-    .then(products => {
-      return res.status(200).json(products);
-    })
-    .catch(err => {
-      if (err) res.status(500).json({ message: 'Something went wrong finding all products using productsIndex on the server side.'});
+Product
+.find()//((err, products) => {
+  .exec()
+  .then(products => {
+    return res.status(200).json(products);
+  })
+  .catch(err => {
+    if (err) res.status(500).json({ message: 'Something went wrong finding all products using productsIndex on the server side.'});
 
-    });
+  });
 }
 
 function productsShow(req, res) {
@@ -39,9 +39,17 @@ function productsDelete(req, res) {
   });
 }
 
+function productsCreate(req, res) {
+  Product.create(req.body, (err, product) => {
+    if (err) return res.status(500).json({ message: 'Something went wrong with productsDelete on the server side.' });
+    return res.status(201).json(product);
+  });
+}
+
 module.exports = {
   index: productsIndex,
   show: productsShow,
   update: productsUpdate,
-  delete: productsDelete
+  delete: productsDelete,
+  create: productsCreate
 };

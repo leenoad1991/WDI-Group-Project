@@ -4,11 +4,11 @@ angular
 
 Product.$inject = ['$resource', 'API'];
 function Product($resource, API) {
-  console.log('running product factory');
   return $resource(`${API}/wines/:id`,
     { id: '@_id' },
     {
-      'update': { method: 'PUT' }
+      'update': { method: 'PUT' },
+      'create': { method: 'POST' }
     }
   );
 }
