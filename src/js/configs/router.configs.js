@@ -33,12 +33,6 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'LoginCtrl',
     controllerAs: 'login'
   })
-
-
-
-
-
-
   .state('productsIndex', {
     url: '/wines',
     templateUrl: '/js/views/product/index.html',
@@ -90,15 +84,27 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('account.users', {
     url: '/admin/users',
-    templateUrl: '/js/views/users/account/admin/index.html',
+    templateUrl: '/js/views/users/account/admin/user-index.html',
     controller: 'UsersIndexCtrl',
     controllerAs: 'usersIndex'
   })
   .state('account.userShow', {
     url: '/admin/user/:id',
-    templateUrl: '/js/views/users/account/show.html',
+    templateUrl: '/js/views/users/account/admin/user-show.html',
     controller: 'UsersShowCtrl',
     controllerAs: 'usersShow'
+  })
+  .state('account.stock', {
+    url: '/admin/stock/all',
+    templateUrl: '/js/views/users/account/admin/stock.html',
+    controller: 'StockViewCtrl',
+    controllerAs: 'stockView'
+  })
+  .state('account.stockShow', {
+    url: '/admin/stock/all/:id',
+    templateUrl: '/js/views/users/account/admin/stock-show.html',
+    controller: 'StockShowCtrl',
+    controllerAs: 'stockShow'
   });
   $urlRouterProvider.otherwise('/');
 }

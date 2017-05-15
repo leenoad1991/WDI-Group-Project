@@ -1,0 +1,64 @@
+<div class="stock-header">
+  <h1>Product</h1>
+  <a ui-sref="productsEdit({ id: stockShow.product._id })" class="btn button-general">Edit</a>
+  <a href="#" class="btn button-general" ng-click="vm.delete()">Delete</a>
+</div>
+
+<table class="table table-striped table-responsive table-sm">
+  <tr>
+    <th style="text-align: left;">PRODUCT NAME</th>
+    <td>{{ stockShow.product.name }}</td>
+  </tr>
+  <tr>
+    <th style="text-align: left; width: 200px; border: 0 1px 0 0 solid black">DESCRIPTION</th>
+    <td>{{ stockShow.product.description }}</td>
+  </tr>
+</table>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped table-responsive table-sm">
+      <tr>
+        <th style="text-align: left; width: 200px; border: 0 1px 0 0 solid black">INFO</th>
+      </tr>
+        <tr>
+          <td style="text-align: right;">TYPE</td>
+          <td style="text-align: center;">{{stockShow.product.info.type}}</td>
+        </tr>
+        <tr>
+          <td style="text-align: right;">YEAR</td>
+          <td style="text-align: center;">{{stockShow.product.info.year}}</td>
+        </tr>
+        <tr>
+          <td style="text-align: right;">GRAPE</td>
+          <td style="text-align: center; padding: 0 10%;">{{stockShow.product.info.grape}}</td>
+        </tr>
+        <tr>
+          <th style="text-align: left; width: 200px; border: 0 1px 0 0 solid black">PRICE</th>
+          <tr>
+            <td style="text-align: right;">LIVE PRICE</td>
+            <td style="text-align: center;">£{{stockShow.product.price.livePrice}}</td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">RETAIL PRICE</td>
+            <td style="text-align: center;">£{{stockShow.product.price.retail}}</td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">MAX PRICE</td>
+            <td style="text-align: center;">£{{stockShow.product.price.max}}</td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">MIN PRICE</td>
+            <td style="text-align: center;">£{{stockShow.product.price.min}}</td>
+          </tr>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-6" style="text-align: center;">
+      <table class="table table-striped table-responsive table-sm">
+        <th>PRODUCT IMAGE</th>
+        <tr>
+          <td><img ng-src= "{{stockShow.product.labelImage}}" style="width: 100px; margin-top: 10%;" alt="image test"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
