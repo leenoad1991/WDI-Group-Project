@@ -10,6 +10,7 @@ function LoginCtrl(UserFactory, CurrentUserService, $state) {
     UserFactory.login(vm.user)
     .$promise
     .then(() => {
+      console.log('GOT HERE');
       CurrentUserService.getUser();
       console.log(CurrentUserService.currentUser, '*** current user');
       $state.go('productsIndex');
