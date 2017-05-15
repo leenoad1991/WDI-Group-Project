@@ -22,6 +22,7 @@ router.route('/wines')
   .get(products.index);
 router.route('/wines/:id')
   .get(products.show)
-  .put(products.update);
+  .put(products.update)
+  .delete(products.delete);
 
 module.exports = router;
