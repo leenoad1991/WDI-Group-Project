@@ -9,15 +9,13 @@
           <div class="form-group">
             <label>Type = {{productsIndex.type }}</label>
             <select ng-model="productsIndex.type" class="form-control">
+              <option value="" disabled selected style="display: none;">Please Select</option>
               <option>All</option>
               <option>Red</option>
               <option>Rosé</option>
               <option>White</option>
             </select>
           </div>
-          <!-- ```<select class="form-control" name="landlord" id="landlord" ng-options="user as user.firstName + ' ' + user.lastName for user in vm.landlords track by user.id" ng-model="vm.property.landlord" required>
-          <option value="" disabled selected style="display: none;">Please Select</option>
-        </select>``` -->
         <div class="form-group">
           <label >Country = {{productsIndex.country }}</label>
           <select ng-model="productsIndex.country" class="form-control">
