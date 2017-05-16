@@ -16,10 +16,20 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     }
   }];
 
+  const Home = ['$q', 'TokenService', '$state', function ($q, TokenService, $state) {
+    if (TokenService.getToken()) {
+      $state.go('productsIndex');
+      return $q.when(TokenService.getToken);
+    }
+  }];
+
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'js/views/home.html'
+    templateUrl: 'js/views/home.html',
+    resolve: {
+      auth: Home
+    }
   })
   .state('register', {
     url: '/register',

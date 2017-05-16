@@ -5,6 +5,7 @@ angular
 UpdatePricesCtrl.$inject = ['PricesFactory', 'TotalValueService', 'Product'];
 function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
   const vm = this;
+
   vm.findPrices = findPrices;
   function findPrices(){
     PricesFactory.query().$promise.then(data => {
@@ -35,7 +36,7 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
   }
   //This calculates the product price difference and is used to determine the change value that is applied to the rest of the products
   function getMultiplier(){
-    vm.multiplier = (vm.purchase.demo*vm.prodPurch) * Math.pow(vm.watch.demo, vm.prodWatchByLen) * Math.pow(vm.view.demo, vm.viewsCount);
+    vm.multiplier = (vm.purchase.demo*vm.prodPurchase) * Math.pow(vm.watch.demo, vm.prodWatchByLen) * Math.pow(vm.view.demo, vm.viewsCount);
     getDifference();
     getNewLivePrice();
   }
