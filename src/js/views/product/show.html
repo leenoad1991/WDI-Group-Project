@@ -1,15 +1,31 @@
 <div ng-show="productsShow.active" class="container view-expand">
   <h1>Product Details</h1>
-  <div class="col-md-4">
-    <img ng-src= "{{productsShow.product.labelImage}}" style="height:150px; width: 75px" alt="{{productsShow.product.name }} image">
+  <div class="col-md-5">
+    <div class="image-red-wine">
+      <img ng-src= "{{productsShow.product.labelImage}}" alt="{{productsShow.product.name }} image">
   </div>
-  <div class="col-md-8">
+  </div>
+  <div class="col-md-7">
     <h2>{{ productsShow.product.name }}</h2>
-    <h3 style="font-size:2rem;"><strong>£{{ productsShow.product.price.retail }}</strong></h3>
+    <h3 class="show-price">£{{ productsShow.product.price.livePrice }}</h3>
+    <h3 class="show-price show-price-retail">£{{ productsShow.product.price.retail }}</h3>
     <p>{{ productsShow.product.info.type }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
     <p>{{ productsShow.product.location.region }}</p>
-    <div class="buttons-bottom">
-      <button type="button" name="button" class="btn basket-button">ADD TO BASKET</button>
+    <div class="col-md-3">
+          <select class="select-class">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          </select>
+        </div>
+      <div class="col-md-9 show-buttons">
       <button type="button" name="button" class="btn basket-button">ADD TO BASKET</button>
       <button type="button" name="button" class="btn buy-button">BUY NOW</button>
     </div>
