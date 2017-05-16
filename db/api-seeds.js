@@ -17,7 +17,7 @@ request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b534
     .create({
       name: x.Name,
       info: {
-        type: x.Varietal.WineType.Name,
+        color: x.Varietal.WineType.Name,
         grape: x.Varietal.Name,
         year: x.Vintage
       },

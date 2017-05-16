@@ -22,10 +22,9 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
 
   function filterProduct() {
     const params = {};
-    params.info = { type: vm.type };
+    params.info = { color: vm.color };
     params.location = { country: vm.country };
     params.info = { year: vm.year };
-    // console.log(params.price.retail);
 
     vm.filtered = filterFilter(vm.all, params);
     assignWatching();
