@@ -2,8 +2,8 @@ angular
   .module('wineApp')
   .controller('UpdatePricesCtrl', UpdatePricesCtrl);
 
-UpdatePricesCtrl.$inject = ['PricesFactory'];
-function UpdatePricesCtrl(PricesFactory) {
+UpdatePricesCtrl.$inject = ['PricesFactory', 'TotalValueService'];
+function UpdatePricesCtrl(PricesFactory, TotalValueService) {
   const vm = this;
   PricesFactory.query().$promise.then(data => {
     vm.purchase = data[0].purchase;
@@ -12,10 +12,18 @@ function UpdatePricesCtrl(PricesFactory) {
     console.log(vm.purchase, vm.watch, vm.view);
   });
 
+
+//returns a value from the service that should be assigned to totalStock value
+  function getTotalValue(){
+    vm.totalStockValue = TotalValueService.getTotalValue();
+  }
+
   vm.prodPurch = //product.totalStock - product.currentStock;
   vm.prodWatchByLen = //product.watchedby.length;
   vm.viewsCount = //product.views.count;
 
+
+  vm.totalStockValue = //products.forEach() //find prices
   //the calculation to find the amount to remove from the products
     //vm.difference/vm.profits = different minus the profit margin
     //vm.totalStockValue-productprices.retail = the total value of the inventory minus the retail
