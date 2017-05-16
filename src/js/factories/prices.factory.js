@@ -4,7 +4,7 @@ angular
 
 PricesFactory.$inject = ['$resource', 'API'];
 function PricesFactory($resource, API) {
-  return $resource(`${API}/prices/:id`,
+  return $resource(`http://localhost:7000/api/prices/:id`,
     { id: '@_id' },
     {
       'update': { method: 'PUT' }

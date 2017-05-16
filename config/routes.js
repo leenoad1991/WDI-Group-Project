@@ -6,6 +6,12 @@ const authentication   = require('../controllers/authentications');
 const products   = require('../controllers/products');
 const prices   = require('../controllers/prices');
 
+router.route('/prices')
+  .get(prices.get);
+
+router.route('/prices/id')
+  .put(prices.update);
+
 router.route('/register')
   .post(authentication.register);
 router.route('/login')
@@ -23,13 +29,11 @@ router.route('/wines')
   .get(products.index)
   .post(products.create);
 
-router.route('/prices/:id')
-  .get(prices.show)
-  .put(prices.update);
-
 router.route('/wines/:id')
   .get(products.show)
   .put(products.update)
   .delete(products.delete);
+
+
 
 module.exports = router;

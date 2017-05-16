@@ -123,6 +123,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: '/js/views/users/account/admin/stock-add.html',
     controller: 'StockAddCtrl',
     controllerAs: 'stockAdd'
+  })
+  .state('account.prices', {
+    url: '/admin/prices',
+    templateUrl: '/js/views/users/account/admin/stock-add.html',
+    controller: 'UpdatePricesCtrl',
+    controllerAs: 'pricesUpdate'
   });
   $urlRouterProvider.otherwise('/');
 }

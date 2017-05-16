@@ -1,9 +1,10 @@
 const Prices = require('../models/prices');
 
 function getPrices(req, res) {
-  Prices.find().exec().then((err, prices) => {
+  console.log('HITTING PRICES');
+  Prices.find().exec().then((prices, err) => {
     if (err) console.log(err, {message: 'Failed to find prices - have you seeded them?'});
-    return res.status(200).json(prices[0]);
+    return res.status(200).json(prices);
   });
 }
 
