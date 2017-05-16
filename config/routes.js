@@ -21,7 +21,11 @@ router.route('/users/:id')
 router.route('/wines')
   .get(products.index)
   .post(products.create);
-  
+
+router.route('/prices')
+  .get(prices.show)
+  .put(prices.update);
+
 router.route('/wines/:id')
   .get(products.show)
   .put(products.update)

@@ -6,6 +6,7 @@ mongoose.connect(env.db.development);
 
 const User = require('../models/user');
 const Product = require('../models/product');
+const Prices = require('../models/prices');
 
 //we may not want to drop the database every time we upload to heroku
 User.collection.drop();
@@ -62,6 +63,20 @@ User
     }).finally(() => {
       mongoose.connection.close();
     });
+
+
+Prices.collection.drop();
+
+Prices
+.create({
+
+}).then(prices => {
+  console.log(prices);
+}).catch(err => {
+  if (err) console.log(err);
+}).finally(() => {
+  mongoose.connection.close();
+});
 
     // Product.collection.drop();
     // Product
