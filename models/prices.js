@@ -12,6 +12,10 @@ const pricesSchema = new mongoose.Schema({
   view: {
     live: { type: Number, default: 1.004 },
     demo: { type: Number, default: 1.05 }
+  },
+  profit: {
+    live: { type: Number, default: 1.1 },
+    demo: { type: Number, default: 1 }
   }
 });
 
