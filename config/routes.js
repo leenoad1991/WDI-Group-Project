@@ -4,6 +4,7 @@ const router  = express.Router();
 const users   = require('../controllers/users');
 const authentication   = require('../controllers/authentications');
 const products   = require('../controllers/products');
+const prices   = require('../controllers/prices');
 
 router.route('/register')
   .post(authentication.register);
@@ -22,7 +23,7 @@ router.route('/wines')
   .get(products.index)
   .post(products.create);
 
-router.route('/prices')
+router.route('/prices/:id')
   .get(prices.show)
   .put(prices.update);
 
