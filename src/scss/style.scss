@@ -321,3 +321,24 @@ modal-title {
     display: none !important;
   }
 }
+
+.buy-button {
+  padding: 10px 40px;
+  background-color: rgba(215, 9, 9, .6);
+  color: white;
+
+  &:hover {
+    background-color: rgba(215, 9, 9, 1);
+    color: white;
+  }
+}
+.basket-button {
+  padding: 10px 40px;
+  background-color: rgba(18, 159, 0, .6);
+  color: white;
+
+  &:hover {
+    background-color: rgba(18, 159, 0, 1);
+    color: white;
+  }
+}

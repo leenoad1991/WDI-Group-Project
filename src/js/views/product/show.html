@@ -1,15 +1,20 @@
-<div ng-show="productsShow.active" class="container">
-<h1>Products Show</h1>
-<img ng-src= "{{productsShow.product.labelImage}}" style="height:100px; width: 50px" alt="image test">
-<h4>{{ productsShow.product.name }}</h4>
-<p style="font-size:2rem;"><strong>£{{ productsShow.product.price.retail }}</strong></p>
-<p>{{ productsShow.product.info.type }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
-<p>{{ productsShow.product.location.region }}</p>
-<div class="bottom-buttons">
-  <a ui-sref="productsEdit({ id: productsShow.product._id })" class="btn btn-primary">Edit</a>
-  <a href="#" class="btn btn-primary" ng-click="productsShow.delete()">Delete</a>
-</div>
-</div>
-<div ng-show="!productsShow.active" class="container">
-  <h1> 404 - Wine not found </h1>
+<div ng-show="productsShow.active" class="container view-expand">
+  <h1>Product Details</h1>
+  <div class="col-md-4">
+    <img ng-src= "{{productsShow.product.labelImage}}" style="height:150px; width: 75px" alt="{{productsShow.product.name }} image">
+  </div>
+  <div class="col-md-8">
+    <h2>{{ productsShow.product.name }}</h2>
+    <h3 style="font-size:2rem;"><strong>£{{ productsShow.product.price.retail }}</strong></h3>
+    <p>{{ productsShow.product.info.type }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
+    <p>{{ productsShow.product.location.region }}</p>
+    <div class="buttons-bottom">
+      <button type="button" name="button" class="btn basket-button">ADD TO BASKET</button>
+      <button type="button" name="button" class="btn buy-button">BUY NOW</button>
+    </div>
+  </div>
+  <div ng-show="!productsShow.active" class="container">
+    <h1> 404 - Wine not found </h1>
+  </div>
+
 </div>
