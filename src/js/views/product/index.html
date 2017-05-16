@@ -9,17 +9,16 @@
           <div class="form-group">
             <label>Type = {{productsIndex.type }}</label>
             <select ng-model="productsIndex.type" class="form-control">
-              <option value="" disabled selected style="display: none;">Please Select</option>
               <option>All</option>
-              <option>Red</option>
-              <option>Rosé</option>
-              <option>White</option>
+              <option>Red Wines</option>
+              <option>Rosé Wines</option>
+              <option>White Wines</option>
             </select>
           </div>
         <div class="form-group">
-          <label >Country = {{productsIndex.country }}</label>
+          <label>Country = {{productsIndex.country }}</label>
           <select ng-model="productsIndex.country" class="form-control">
-            <option>All</option>
+            <option valiue=" ">All</option>
             <option>France</option>
             <option>New Zealand</option>
             <option>Spain</option>
@@ -49,7 +48,7 @@
     <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
       <div class="card wines-card">
         <div>
-          <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
+          <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': productsIndex.watchingUser.watching.indexOf(product._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
           <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
           <span class="glyphicon glyphicon-eye-open right"></span>
         </div>

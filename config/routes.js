@@ -17,6 +17,9 @@ router.route('/register')
 router.route('/login')
   .post(authentication.login);
 
+router.route('/userswatching/:id')
+  .get(users.watching);
+
 router.route('/users')
   .get(users.index);
 router.route('/users/:id')

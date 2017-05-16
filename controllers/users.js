@@ -14,6 +14,14 @@ function usersShow(req, res) {
     return res.status(200).json(user);
   });
 }
+function usersWatching(req, res) {
+  console.log(req.params);
+  User.findById(req.params.id).exec((err, user) => {
+    if (err) res.status(500).json({ message: 'Something went wrong finding that specific user on the server side.'});
+    if (!user) res.status(404).json({ message: 'No user found by that ID'});
+    return res.status(200).json(user);
+  });
+}
 function usersUpdate(req, res) {
   console.log(req.body);
   User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, user) => {
@@ -35,5 +43,6 @@ module.exports = {
   index: usersIndex,
   show: usersShow,
   update: usersUpdate,
-  delete: usersDelete
+  delete: usersDelete,
+  watching: usersWatching
 };
