@@ -24,6 +24,10 @@ const productSchema = new mongoose.Schema({
     retail: { type: Number },
     livePrice: { type: Number}
   },
+  views: {
+    count: { type: Number, default: 1 },
+    times: [{type: Date}]
+  },
   watchedBy: [{type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
