@@ -56,9 +56,9 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
     vm.prodWatchByLen   = 1; //return 1 if 0
     vm.prodViewsCount   = 1;
     Product.get({id: productId}).$promise.then(product => {
-      // vm.prodPurchase     = product.totalStock - product.currentStock;
-      // vm.prodWatchByLen   = product.watchedby.length; //return 1 if 0
-      // vm.prodViewsCount   = product.views.count;
+      vm.prodPurchase     = (product.stock.original - product.stock.current) + 1;
+      vm.prodWatchByLen   = product.watchedby.length + 1; //return 1 if 0
+      vm.prodViewsCount   = product.views.count + 1;
       vm.prodPriceLive    = product.price.livePrice;
       vm.prodPriceRetail  = product.price.retail;
       getMultiplier(productId, $index);
