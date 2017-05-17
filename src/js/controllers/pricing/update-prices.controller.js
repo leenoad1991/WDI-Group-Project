@@ -24,7 +24,6 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
       getTotalValue();
       findProduct(productId, $index);
       getMarketLiveValue();
-      // getMultiplier();
     });
   }
 
