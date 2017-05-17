@@ -1,0 +1,23 @@
+<h1>TESTING PRICES</h1>
+
+<table class="table table-striped table-responsive">
+  <th>PRICING</th>
+  <th ng-repeat="product in pricesUpdate.products">{{product.name}}</th>
+  <th>TOTAL MARKET</th>
+<tr>
+  <td>RETAIL PRICE</td>
+  <td ng-repeat="product in pricesUpdate.products" >{{ product.price.retail }}</td>
+  <td>{{ pricesUpdate.marketPrice }}</td>
+</tr>
+<tr>
+  <td>LIVE PRICE</td>
+  <td ng-repeat="product in pricesUpdate.products">{{ product.price.livePrice }}</td>
+  <td>{{ pricesUpdate.marketLivePrice }}</td>
+</tr>
+<tr>
+  <td>MULTIPLY</td>
+  <td ng-repeat="product in pricesUpdate.products track by $index"><button ng-click="pricesUpdate.findProduct(product._id, $index)" type="button" name="button">BUY</button></td>
+</tr>
+</table>
+
+<button type="button" name="button" ng-click="pricesUpdate.getMarketLiveValue()">UPDATE</button>
