@@ -31,6 +31,7 @@ function productsUpdate(req, res) {
   });
 }
 
+
 function productsDelete(req, res) {
   Product.findByIdAndRemove(req.params.id, (err, product) => {
     if (err) return res.status(500).json({ message: 'Something went wrong with productsDelete on the server side.' });

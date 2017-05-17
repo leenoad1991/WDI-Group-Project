@@ -37,4 +37,16 @@ const productSchema = new mongoose.Schema({
   }
 });
 
+// productSchema.pre('save', done => {
+//   this.model('Product').update({
+//     _id: {
+//       $ne: [this._id]
+//     }
+//   }, {
+//     price: {
+//       livePrice: {}
+//     }
+//   })
+// })
+
 module.exports = mongoose.model('Product', productSchema);

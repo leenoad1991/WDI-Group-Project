@@ -52,12 +52,9 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
   }
 
   function findProduct(productId, $index){
-    vm.prodPurchase     = 1;
-    vm.prodWatchByLen   = 1; //return 1 if 0
-    vm.prodViewsCount   = 1;
     Product.get({id: productId}).$promise.then(product => {
       vm.prodPurchase     = (product.stock.original - product.stock.current) + 1;
-      vm.prodWatchByLen   = product.watchedby.length + 1; //return 1 if 0
+      vm.prodWatchByLen   = product.watchedBy.length + 1; //return 1 if 0
       vm.prodViewsCount   = product.views.count + 1;
       vm.prodPriceLive    = product.price.livePrice;
       vm.prodPriceRetail  = product.price.retail;
@@ -85,7 +82,7 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
   }
   //
   function getNewLivePrice() {
-    vm.newLivePrice = (vm.prodPriceRetail*vm.multiplier);
+    vm.newLivePrice = (vm.prodPriceLive*vm.multiplier);
     console.log('PRODUCT RETAIL PRICE = ', vm.prodPriceRetail);
     console.log('NEW PRODUCT LIVE PRICE  = ', vm.newLivePrice);
   }
@@ -99,13 +96,26 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
 
   function updateAllProducts(productId, $index){
     vm.products[$index].price.livePrice = vm.newLivePrice;
+    vm.updateCount = 0;
+    Product.update({ id: vm.products[$index]._id}, vm.products[$index]).$promise.then(() => {
+      console.log(vm.products[$index], 'Product Updated');
+    }).catch(err => console.log(err));
     vm.products.forEach(product => {
+      vm.updateCount ++;
       if (product._id !== productId) {
+        vm.updateCount ++;
         product.price.livePrice = product.price.livePrice-(product.price.livePrice*vm.debtPercentage);
         console.log(product.name, product.price.livePrice);
+        Product.update({ id: product._id}, product).$promise.then(() => {
+          console.log('Product Updated');
+        }).catch(err => console.log(err));
+      }
+      if (vm.updateCount === vm.products.length) {
+        getMarketLiveValue();
       }
     });
   }
+
   //first display all seed data on page
   //then add button that applies the multiplier when clicked
   //then run the alogirithm
