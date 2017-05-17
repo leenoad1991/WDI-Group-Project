@@ -370,11 +370,7 @@ body {
   }
 }
 
-.show-price {
-  font-weight: 800;
-  font-size: 3rem;
-  display: inline-block;
-}
+
 
 .show-price-retail {
   text-decoration: line-through;
@@ -413,4 +409,39 @@ body {
     left: 39.5%;
     top: 43%;
   }
+}
+
+.show-price {
+  font-weight: 800;
+  font-size: 3rem;
+  display: inline-block;
+  h3 {
+    padding: 5px;
+  }
+}
+
+.lowerText {
+  color: #119F00;
+}
+
+.higherText {
+  color: #D70909;
+}
+.lower {
+  display: inline-block;
+  color: green;
+  margin-right: 15px;
+  width: 30px;
+  height: 28px;
+  background:
+  url('../images/lower.png') center no-repeat;
+}
+
+.higher {
+  display: inline-block;
+  color: red;
+  width: 30px;
+  height: 28px;
+  background:
+  url('../images/lower2.png') center no-repeat;
 }

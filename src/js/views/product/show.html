@@ -8,7 +8,7 @@
   </div>
   <div class="col-md-7">
     <h2>{{ productsShow.product.name }}</h2>
-    <h3 class="show-price">£{{ productsShow.product.price.livePrice | number: 2 }}</h3>
+    <h3 class="show-price" ng-class="{ lowerText: productsShow.product.price.livePrice < productsShow.product.price.retail, higherText: productsShow.product.price.livePrice > productsShow.product.price.retail }"><div ng-class="{ lower: productsShow.product.price.livePrice < productsShow.product.price.retail, higher: productsShow.product.price.livePrice > productsShow.product.price.retail }"></div>£{{ productsShow.product.price.livePrice | number: 2 }}</h3>
     <h3 class="show-price show-price-retail">£{{ productsShow.product.price.retail }}</h3>
     <p>{{ productsShow.product.info.color }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
     <p>{{ productsShow.product.location.region }}</p>
