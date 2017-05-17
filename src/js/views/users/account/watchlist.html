@@ -3,18 +3,22 @@
 <div class="col-lg-12">
   <div class="col-md-4 col-sm-6" ng-repeat="product in watchlist.user.watching track by $index">
     <a ui-sref="productsShow({ id: product._id })">
-    <div class="card wines-card">
-      <div>
-        <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': product.watchedBy.indexOf(productsIndex.user._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
-        <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
-        <span class="glyphicon glyphicon-eye-open right"></span>
-      </div>
-        <img ng-src= "{{product.labelImage}}" style="height:100px; width: 50px" alt="image test">
-        <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
-        <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
-        <p>{{ product.info.type | limitTo: 25 }}{{ product.info.type.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
-        <p>{{ product.location.region }}</p>
-      </div></a>
+      <div class="card wines-card">
+        <div>
+          <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': productsIndex.watchingUser.watching.indexOf(product._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
+          <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
+          <span class="glyphicon glyphicon-eye-open right"></span>
+        </div>
+      <a ui-sref="productsShow({ id: product._id })">
+        <div style="margin-top: 25px; text-align: center">
+            <img ng-src= "{{product.labelImage}}" alt="image test">
+            <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
+            <p><div ng-class="{ lower: product.price.livePrice < product.price.retail, higher: product.price.livePrice > product.price.retail }"></div><strong ng-class="{ lowerText: product.price.livePrice < product.price.retail, higherText: product.price.livePrice > product.price.retail }">£{{ product.price.livePrice | number: 2 }}</strong></p>
+            <p>{{ product.info.color | limitTo: 25 }}{{ product.info.color.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
+            <p>{{ product.location.region }}</p>
+          </div></a>
+        </div>
+    </a>
     </div>
   </div>
 </div>
