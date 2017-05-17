@@ -1,69 +1,73 @@
-
 <div class="container">
-  <h1>Wines</h1>
+<h2>Search wines</h2>
+
   <div class="row">
     <div class="col-lg-2">
       <div class="menu">
         <form>
-          <h4>Search Options</h4>
+          <!-- <h4>Search Options</h4> -->
+          {{ productsIndex.search }}
+          <input type="text" value="Search wines" ng-model="productsIndex.search">
           <div class="form-group">
             <label>Type = {{ productsIndex.color }}</label>
             <select ng-model="productsIndex.color" class="form-control">
+              <option style="display:none" value="">select a colour</option>
               <option>All</option>
-              <option>Red Wines</option>
-              <option>Rosé Wines</option>
-              <option>White Wines</option>
+              <option>Red</option>
+              <option>Rosé</option>
+              <option>White</option>
             </select>
           </div>
-        <div class="form-group">
-          <label>Country = {{productsIndex.country }}</label>
-          <select ng-model="productsIndex.country" class="form-control">
-            <option valiue=" ">All</option>
-            <option>France</option>
-            <option>New Zealand</option>
-            <option>Spain</option>
-            <option>Italy</option>
-            <option>Australia</option>
-            <option>Chile</option>
-            <option>South Africa</option>
-            <option>Argentina</option>
-            <option>USA</option>
-            <option>Portugal</option>
-            <option>Germany</option>
-          </select>
-        </div>
-        <label>Year</label>
-        <input type="text" name="year" ng-model="productsIndex.year">
-        <div class="label-spacing">
-          <label>Price Min = £{{ productsIndex.minPriceRange }}</label>
-          <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.minPriceRange">
+          <div class="form-group">
 
-          <label>Price Max = £{{ productsIndex.maxPriceRange }}</label>
-          <input type="range" min="10" max="1000" step="10" name="priceRange" ng-model="productsIndex.maxPriceRange">
-        </div>
-        <input type="submit" name="" value="Search" ng-model="productsIndex.filtered">
-      </form>
+            <select ng-model="productsIndex.country" class="form-control">
+              <option style="display:none" value="">select a Country</option>
+              <option>All</option>
+              <option>France</option>
+              <option>New Zealand</option>
+              <option>Spain</option>
+              <option>Italy</option>
+              <option>Australia</option>
+              <option>Chile</option>
+              <option>South Africa</option>
+              <option>Argentina</option>
+              <option>USA</option>
+              <option>Portugal</option>
+              <option>Germany</option>
+            </select>
+          </div>
+          <label>Year</label>
+          <input type="text" name="year" ng-model="productsIndex.year">
+          <div class="label-spacing">
+            <p>£{{ productsIndex.minPriceRange }} - £{{productsIndex.maxPriceRange}}</p>
+            <input type="range" min="0" max="1000" step="10" name="priceRange" ng-model="productsIndex.minPriceRange">
+
+
+            <input type="range" min="0" max="1000" step="10" name="priceRange" ng-model="productsIndex.maxPriceRange">
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-10">
-    <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
-      <div class="card wines-card">
-        <div>
-          <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': productsIndex.watchingUser.watching.indexOf(product._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
-          <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
-          <span class="glyphicon glyphicon-eye-open right"></span>
-        </div>
-        <div style="margin-top: 25px; text-align: center">
-          <a ui-sref="productsShow({ id: product._id })">
-            <!-- {{ product.watchedBy.indexOf(vm.user._id) }} -->
-            <img ng-src= "{{product.labelImage}}" alt="image test">
-            <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
-            <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
-            <p>{{ product.info.type | limitTo: 25 }}{{ product.info.type.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
-            <p>{{ product.location.region }}</p>
-          </a></div>
+
+    <div class="col-lg-10">
+      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
+        <div class="card wines-card">
+          <div>
+            <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': productsIndex.watchingUser.watching.indexOf(product._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>
+            <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
+            <span class="glyphicon glyphicon-eye-open right"></span>
+          </div>
+          <div style="margin-top: 25px; text-align: center">
+            <a ui-sref="productsShow({ id: product._id })">
+              <!-- {{ product.watchedBy.indexOf(vm.user._id) }} -->
+              <img ng-src= "{{product.labelImage}}" alt="image test">
+              <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
+              <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
+              <p>{{ product.info.type | limitTo: 25 }}{{ product.info.type.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
+              <p>{{ product.location.region }}</p>
+            </a></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-<div>
