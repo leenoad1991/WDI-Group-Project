@@ -5,11 +5,10 @@
     <div class="col-lg-2">
       <div class="menu">
         <form>
-          <!-- <h4>Search Options</h4> -->
+          <h4>Search Options</h4>
           {{ productsIndex.search }}
           <p><input type="text" value="Search wines" ng-model="productsIndex.search" placeholder="Search by name"></p>
           <div class="form-group">
-            <!-- <label>Type = {{ productsIndex.color }}</label> -->
             <select ng-model="productsIndex.color" class="form-control">
               <option style="display:none" value="">select a colour</option>
               <option>All</option>
@@ -58,11 +57,10 @@
           </div>
           <div style="margin-top: 25px; text-align: center">
             <a ui-sref="productsShow({ id: product._id })">
-              <!-- {{ product.watchedBy.indexOf(vm.user._id) }} -->
               <img ng-src= "{{product.labelImage}}" alt="image test">
               <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
-              <p style="font-size:2rem;"><strong>£{{ product.price.retail }}</strong></p>
-              <p>{{ product.info.type | limitTo: 25 }}{{ product.info.type.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
+              <p style="font-size:2rem;"><strong>£{{ product.price.livePrice }}</strong></p>
+              <p>{{ product.info.color | limitTo: 25 }}{{ product.info.color.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
               <p>{{ product.location.region }}</p>
             </a></div>
           </div>

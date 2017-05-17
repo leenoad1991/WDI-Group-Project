@@ -17,6 +17,7 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   .$promise
   .then(products => {
     vm.all = products;
+    console.log(vm.all);
     filterProducts();
   });
 
@@ -34,15 +35,12 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     params.price = { livePrice: vm.minPriceRange };
 
     vm.filtered = filterFilter(vm.all, params);
-
     vm.filteredPrice = vm.filtered.filter(item => {
-      return item.price.max <= vm.max && item.price.min >= vm.min;
+      return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
     });
-
-
     assignWatching();
-  }
 
+  }
 
 
   $scope.$watchGroup([
@@ -84,10 +82,10 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
         .then((err) => {
           if (err) console.log(err);
         });
-        vm.products[$index].watchedBy.push(vm.currentUser._id);
+        vm.filtered[$index].watchedBy.push(vm.currentUser._id);
         // console.log(vm.products[$index].watchedBy);
         Product
-        .update({ id: id}, vm.products[$index])
+        .update({ id: id}, vm.filtered[$index])
         .$promise
         .then((err) => {
           if (err) console.log(err);
@@ -101,10 +99,10 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
         .then((err) => {
           if (err) console.log(err);
         });
-        vm.splice2 = vm.products[$index].watchedBy.indexOf(vm.currentUser._id);
-        vm.products[$index].watchedBy.splice(vm.splice2, 1);
+        vm.splice2 = vm.filtered[$index].watchedBy.indexOf(vm.currentUser._id);
+        vm.filtered[$index].watchedBy.splice(vm.splice2, 1);
         Product
-        .update({ id: id}, vm.products[$index])
+        .update({ id: id}, vm.filtered[$index])
         .$promise
         .then((err) => {
           if (err) console.log(err);
