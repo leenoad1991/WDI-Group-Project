@@ -7,9 +7,9 @@
         <form>
           <!-- <h4>Search Options</h4> -->
           {{ productsIndex.search }}
-          <input type="text" value="Search wines" ng-model="productsIndex.search">
+          <p><input type="text" value="Search wines" ng-model="productsIndex.search" placeholder="Search by name"></p>
           <div class="form-group">
-            <label>Type = {{ productsIndex.color }}</label>
+            <!-- <label>Type = {{ productsIndex.color }}</label> -->
             <select ng-model="productsIndex.color" class="form-control">
               <option style="display:none" value="">select a colour</option>
               <option>All</option>
@@ -36,12 +36,12 @@
               <option>Germany</option>
             </select>
           </div>
-          <label>Year</label>
-          <input type="text" name="year" ng-model="productsIndex.year">
+
+          <input type="text" name="year"  placeholder="Year" ng-model="productsIndex.year">
           <div class="label-spacing">
-            <label for="">Min {{ productsIndex.min }}</label>
+            <label for="">Minimum price: £ {{ productsIndex.min }}</label>
             <input type="range" min="0" max="1000" step="10" value="0" name="priceRange" ng-model="productsIndex.min">
-            <label for="">Max {{ productsIndex.max }}</label>
+            <label for="">Maximum price: £ {{ productsIndex.max }}</label>
             <input type="range" min="0" max="1000" step="10" value="1000" name="priceRange" ng-model="productsIndex.max">
           </div>
         </form>
