@@ -11,7 +11,7 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   vm.year          = '';
   vm.min           = 0;
   vm.max           = 100000;
-
+  vm.sort          = false;
   Product
   .query()
   .$promise
@@ -38,7 +38,8 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     // vm.filteredPrice = vm.filtered.filter(item => {
     //   return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
     // });
-    if (vm.sort === 'High to Low') {
+
+    if (vm.sort === true) {
       sortProducts(vm.filteredPrice);
     } else {
       vm.filteredPrice = vm.filtered.filter(item => {
@@ -46,6 +47,13 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
       });
     }
     assignWatching();
+  }
+
+  vm.sortFire = sortFire;
+
+  function sortFire() {
+    vm.sort === true ? vm.sort = false : vm.sort = true;
+    filterProducts();
   }
 
   function sortProducts(products){

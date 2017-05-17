@@ -462,3 +462,17 @@ body {
   background:
   url('../images/lower2.png') center no-repeat;
 }
+
+.sorting-buttons {
+  text-align: center;
+  button {
+    font-size: 1.8rem;
+    border: none;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: rgba(0,0,0,0);
+    &:focus {
+      outline: none;
+    }
+  }
+}

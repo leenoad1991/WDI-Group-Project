@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Search wines</h2>
+  <h2>Search wines</h2>
 
   <div class="row">
     <div class="col-lg-2">
@@ -47,7 +47,12 @@
       </div>
     </div>
 
-    <div class="col-lg-10"> <div>{{productsIndex.sort}}<input ng-model="productsIndex.sort" type="text" name="" value=""></div>
+    <div class="col-lg-10">
+      <div class="sorting-buttons">
+        <button ng-click="productsIndex.sortFire()" type="button">None</button>|
+        <button ng-click="productsIndex.sortFire()" type="button">High/Low </button>|
+        <button ng-click="productsIndex.sortFire()" type="button">Differential</button>
+      </div>
       <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filteredPrice track by $index">
         <div class="card wines-card">
           <div>
@@ -55,8 +60,8 @@
             <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
             <span class="glyphicon glyphicon-eye-open right"></span>
           </div>
-        <a ui-sref="productsShow({ id: product._id })">
-          <div style="margin-top: 25px; text-align: center">
+          <a ui-sref="productsShow({ id: product._id })">
+            <div style="margin-top: 25px; text-align: center">
               <img ng-src= "{{product.labelImage}}" alt="image test">
               <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
               <p><div ng-class="{ lower: product.price.livePrice < product.price.retail, higher: product.price.livePrice > product.price.retail }"></div><strong ng-class="{ lowerText: product.price.livePrice < product.price.retail, higherText: product.price.livePrice > product.price.retail }">£{{ product.price.livePrice | number: 2 }}</strong></p>
