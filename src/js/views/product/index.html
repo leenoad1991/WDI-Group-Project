@@ -41,7 +41,7 @@
             <label for="">Minimum price: £ {{ productsIndex.min }}</label>
             <input type="range" min="0" max="1000" step="10" value="0" name="priceRange" ng-model="productsIndex.min">
             <label for="">Maximum price: £ {{ productsIndex.max }}</label>
-            <input type="range" min="0" max="1000" step="10" value="1000" name="priceRange" ng-model="productsIndex.max">
+            <input type="range" min="0" max="100000" step="100" value="100000" name="priceRange" ng-model="productsIndex.max">
           </div>
         </form>
       </div>
@@ -59,7 +59,7 @@
             <a ui-sref="productsShow({ id: product._id })">
               <img ng-src= "{{product.labelImage}}" alt="image test">
               <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
-              <p style="font-size:2rem;"><strong>£{{ product.price.livePrice }}</strong></p>
+              <p style="font-size:2rem;"><strong>£{{ product.price.livePrice | number: 2 }}</strong></p>
               <p>{{ product.info.color | limitTo: 25 }}{{ product.info.color.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
               <p>{{ product.location.region }}</p>
             </a></div>

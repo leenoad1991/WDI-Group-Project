@@ -1,5 +1,6 @@
 <div ng-show="productsShow.active" class="container view-expand">
   <h1>Product Details</h1>
+  <h4>Views {{ productsShow.product.views.count }}</h4>
   <div class="col-md-5">
     <div class="image-red-wine">
       <img ng-src= "{{productsShow.product.labelImage}}" alt="{{productsShow.product.name }} image">
@@ -7,9 +8,9 @@
   </div>
   <div class="col-md-7">
     <h2>{{ productsShow.product.name }}</h2>
-    <h3 class="show-price">£{{ productsShow.product.price.livePrice }}</h3>
+    <h3 class="show-price">£{{ productsShow.product.price.livePrice | number: 2 }}</h3>
     <h3 class="show-price show-price-retail">£{{ productsShow.product.price.retail }}</h3>
-    <p>{{ productsShow.product.info.type }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
+    <p>{{ productsShow.product.info.color }}, {{ productsShow.product.info.grape }}, {{ productsShow.product.info.year }}</p>
     <p>{{ productsShow.product.location.region }}</p>
     <div class="col-md-3">
           <select class="select-class">
@@ -25,9 +26,9 @@
           <option>10</option>
           </select>
         </div>
-      <div class="col-md-9 show-buttons">
+      <div class="col-md-9 show-buttons" ng-controller="UpdatePricesCtrl as update">
       <button type="button" name="button" class="btn basket-button">ADD TO BASKET</button>
-      <button type="button" name="button" class="btn buy-button">BUY NOW</button>
+      <button type="button" name="button" class="btn buy-button" ng-click="update.findProduct(productsShow.product._id)">BUY NOW</button>
     </div>
   </div>
   <div ng-show="!productsShow.active" class="container">

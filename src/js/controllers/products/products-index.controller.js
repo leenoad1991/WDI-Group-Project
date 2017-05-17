@@ -10,7 +10,7 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   vm.watchClick    = watchClick;
   vm.year          = '';
   vm.min           = 0;
-  vm.max           = 1000;
+  vm.max           = 100000;
 
   Product
   .query()

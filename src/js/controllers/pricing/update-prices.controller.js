@@ -24,6 +24,7 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
       getTotalValue();
       findProduct(productId, $index);
       getMarketLiveValue();
+      console.log(productId);
     });
   }
 
@@ -57,6 +58,7 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
       vm.prodViewsCount   = product.views.count + 1;
       vm.prodPriceLive    = product.price.livePrice;
       vm.prodPriceRetail  = product.price.retail;
+      vm.product          = product;
       getMultiplier(productId, $index);
       console.log(product, 'findProductWorking');
     });
@@ -94,10 +96,10 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
   }
 
   function updateAllProducts(productId, $index){
-    vm.products[$index].price.livePrice = vm.newLivePrice;
+    vm.product.price.livePrice = vm.newLivePrice;
     vm.updateCount = 0;
-    Product.update({ id: vm.products[$index]._id}, vm.products[$index]).$promise.then(() => {
-      console.log(vm.products[$index], 'Product Updated');
+    Product.update({ id: vm.product._id}, vm.product).$promise.then(() => {
+      console.log(vm.product, 'Product Updated');
     }).catch(err => console.log(err));
     vm.products.forEach(product => {
       vm.updateCount ++;
