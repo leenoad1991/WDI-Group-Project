@@ -8,11 +8,11 @@
       <th style="text-align: center;">DEVIATION</th>
     </tr>
   <tr ng-repeat="product in stockView.products track by $index">
-    <td>{{ $index }}</td>
+    <td>{{ $index + 1 }}</td>
     <td style="max-width: 150px;">{{ product.name}}</td>
-    <td>{{ product.price.livePrice }}</td>
+    <td><strong>£{{ product.price.livePrice | number: 2 }}</strong></td>
     <td>£{{ product.price.retail}}</td>
-    <td>{{ product.price.deviation}}% </td>
+    <td ng-class="{higherText: product.price.deviation > 100, lowerText: product.price.deviation < 100}">{{ product.price.deviation}}% </td>
     <td><button type="button" name="button" class="btn" ui-sref="account.stockShow({ id: product._id })">View</button></td>
   </tr>
 </table>

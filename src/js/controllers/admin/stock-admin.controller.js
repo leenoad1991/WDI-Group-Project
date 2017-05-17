@@ -14,8 +14,15 @@ function StockViewCtrl(Product) {
         processedProducts++;
         if (processedProducts === data.length) {
           vm.products = data;
+          console.log(vm.products.length);
+          sortProducts(vm.products);
         }
       });
+      function sortProducts(products){
+        products.sort(function(a, b) {
+          return b.price.deviation - a.price.deviation;
+        });
+      }
     });
   }
 }

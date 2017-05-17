@@ -35,13 +35,24 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     params.price = { livePrice: vm.minPriceRange };
 
     vm.filtered = filterFilter(vm.all, params);
-    vm.filteredPrice = vm.filtered.filter(item => {
-      return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
-    });
+    // vm.filteredPrice = vm.filtered.filter(item => {
+    //   return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
+    // });
+    if (vm.sort === 'High to Low') {
+      sortProducts(vm.filteredPrice);
+    } else {
+      vm.filteredPrice = vm.filtered.filter(item => {
+        return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
+      });
+    }
     assignWatching();
-
   }
 
+  function sortProducts(products){
+    products.sort(function(a, b) {
+      return b.price.livePrice - a.price.livePrice;
+    });
+  }
 
   $scope.$watchGroup([
     () => vm.q,
