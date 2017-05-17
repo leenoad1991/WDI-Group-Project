@@ -136,7 +136,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('account.prices', {
     url: '/admin/prices',
-    templateUrl: '/js/views/users/account/admin/stock-add.html',
+    templateUrl: '/js/views/product/prices-test.html',
     controller: 'UpdatePricesCtrl',
     controllerAs: 'pricesUpdate'
   });
