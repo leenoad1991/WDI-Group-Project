@@ -19,16 +19,22 @@ const productSchema = new mongoose.Schema({
     lng: { type: Number }
   },
   price: {
-    min: { type: Number },
-    max: { type: Number },
     retail: { type: Number },
-    livePrice: { type: Number}
+    livePrice: { type: Number},
+    livePriceDisplay: [ {
+      livePrice: { type: Number },
+      time: { type: Date }
+    }]
   },
   views: {
     count: { type: Number, default: 1 },
     times: [{type: Date}]
   },
-  watchedBy: [{type: Schema.Types.ObjectId, ref: 'User' }]
+  watchedBy: [{type: Schema.Types.ObjectId, ref: 'User' }],
+  stock: {
+    original: { type: Number, default: 100},
+    current: { type: Number, default: 100 }
+  }
 });
 
 module.exports = mongoose.model('Product', productSchema);
