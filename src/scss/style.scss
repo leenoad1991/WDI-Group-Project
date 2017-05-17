@@ -136,6 +136,7 @@ body {
 
   a {
     text-decoration: none;
+    all: unset;
   }
   &:hover {
     box-shadow: 5px 5px 15px lightgrey;
@@ -432,13 +433,17 @@ body {
 }
 
 .lowerText {
+  font-size: 2rem;
   color: #119F00;
 }
 
 .higherText {
+  font-size: 2rem;
   color: #D70909;
 }
 .lower {
+  position: relative;
+  top: 5px;
   display: inline-block;
   margin-right: 15px;
   width: 30px;
@@ -448,6 +453,8 @@ body {
 }
 
 .higher {
+  position: relative;
+  top: 5px;
   display: inline-block;
   margin-right: 15px;
   width: 30px;

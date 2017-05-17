@@ -59,7 +59,7 @@
           <div style="margin-top: 25px; text-align: center">
               <img ng-src= "{{product.labelImage}}" alt="image test">
               <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
-              <p style="font-size:2rem;"><strong>£{{ product.price.livePrice | number: 2 }}</strong></p>
+              <p><div ng-class="{ lower: product.price.livePrice < product.price.retail, higher: product.price.livePrice > product.price.retail }"></div><strong ng-class="{ lowerText: product.price.livePrice < product.price.retail, higherText: product.price.livePrice > product.price.retail }">£{{ product.price.livePrice | number: 2 }}</strong></p>
               <p>{{ product.info.color | limitTo: 25 }}{{ product.info.color.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
               <p>{{ product.location.region }}</p>
             </div></a>
