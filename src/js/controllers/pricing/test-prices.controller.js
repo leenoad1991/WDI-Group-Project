@@ -1,6 +1,6 @@
 angular
   .module('wineApp')
-  .controller('UpdatePricesCtrl', UpdatePricesCtrl);
+  .controller('TestPricesCtrl', UpdatePricesCtrl);
 
 UpdatePricesCtrl.$inject = ['PricesFactory', 'TotalValueService', 'Product'];
 function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
