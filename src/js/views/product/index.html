@@ -55,14 +55,14 @@
             <p class="wines-card-watching-text">{{ product.watchedBy.length}}</p>
             <span class="glyphicon glyphicon-eye-open right"></span>
           </div>
+        <a ui-sref="productsShow({ id: product._id })">
           <div style="margin-top: 25px; text-align: center">
-            <a ui-sref="productsShow({ id: product._id })">
               <img ng-src= "{{product.labelImage}}" alt="image test">
               <h4>{{ product.name | limitTo: 25 }}{{ product.name.length > 25 ? '...' : '' }}</h4>
-              <p style="font-size:2rem;"><span ng-class="{ lower: productsShow.product.price.livePrice < productsShow.product.price.retail, higher: productsShow.product.price.livePrice > productsShow.product.price.retail }">O</span><strong>£{{ product.price.livePrice | number: 2 }}</strong></p>
+              <p style="font-size:2rem;"><strong>£{{ product.price.livePrice | number: 2 }}</strong></p>
               <p>{{ product.info.color | limitTo: 25 }}{{ product.info.color.length > 25 ? '...' : '' }}, {{ product.info.grape | limitTo: 25 }}{{ product.info.grape.length > 25 ? '...' : '' }}, {{ product.info.year | limitTo: 25 }}{{ product.info.year.length > 25 ? '...' : '' }}</p>
               <p>{{ product.location.region }}</p>
-            </a></div>
+            </div></a>
           </div>
         </div>
       </div>

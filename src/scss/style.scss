@@ -133,6 +133,13 @@ body {
   box-sizing: border-box;
   border: solid 1px #9F031B;
   border-radius: 5px;
+
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    box-shadow: 5px 5px 15px lightgrey;
+  }
 }
 
 .wines-card-watching-text {
@@ -284,6 +291,9 @@ body {
   margin-top: 5%;
   font-size: 20px;
   color: grey;
+  &:hover {
+    color: darkgrey;
+  }
 }
 
 .label-spacing {
@@ -376,6 +386,7 @@ body {
   text-decoration: line-through;
   font-weight: 400;
   float: right;
+  margin-right: 15%;
 }
 
 .show-image {
@@ -429,7 +440,6 @@ body {
 }
 .lower {
   display: inline-block;
-  color: green;
   margin-right: 15px;
   width: 30px;
   height: 28px;
@@ -439,7 +449,7 @@ body {
 
 .higher {
   display: inline-block;
-  color: red;
+  margin-right: 15px;
   width: 30px;
   height: 28px;
   background:
