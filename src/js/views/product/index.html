@@ -39,18 +39,17 @@
           <label>Year</label>
           <input type="text" name="year" ng-model="productsIndex.year">
           <div class="label-spacing">
-            <p>£{{ productsIndex.minPriceRange }} - £{{productsIndex.maxPriceRange}}</p>
-            <input type="range" min="0" max="1000" step="10" name="priceRange" ng-model="productsIndex.minPriceRange">
-
-
-            <input type="range" min="0" max="1000" step="10" name="priceRange" ng-model="productsIndex.maxPriceRange">
+            <label for="">Min {{ productsIndex.min }}</label>
+            <input type="range" min="0" max="1000" step="10" value="0" name="priceRange" ng-model="productsIndex.min">
+            <label for="">Max {{ productsIndex.max }}</label>
+            <input type="range" min="0" max="1000" step="10" value="1000" name="priceRange" ng-model="productsIndex.max">
           </div>
         </form>
       </div>
     </div>
 
     <div class="col-lg-10">
-      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filtered track by $index">
+      <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filteredPrice track by $index">
         <div class="card wines-card">
           <div>
             <span class="glyphicon glyphicon-eye-open left" ng-class="{ 'watched': productsIndex.watchingUser.watching.indexOf(product._id) !== -1 }" ng-click="productsIndex.watchClick(product._id, $index)"></span>

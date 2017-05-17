@@ -21,6 +21,9 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   });
 
   function filterProducts() {
+    if (vm.country === 'All') vm.country = '';
+    if (vm.color === 'All') vm.color = '';
+
     const params = {};
     params.name = vm.search;
     params.location = { country: vm.country };
@@ -30,9 +33,13 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     };
     params.price = { livePrice: vm.minPriceRange };
 
-
-
     vm.filtered = filterFilter(vm.all, params);
+
+    vm.filteredPrice = vm.filtered.filter(item => {
+      return item.price.max <= vm.max && item.price.min >= vm.min;
+    });
+
+
     assignWatching();
   }
 
@@ -44,7 +51,8 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     () => vm.country,
     () => vm.year,
     () => vm.search,
-    () => vm.max
+    () => vm.max,
+    () => vm.min
   ], filterProducts);
 
 
