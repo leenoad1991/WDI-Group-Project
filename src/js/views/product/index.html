@@ -49,9 +49,9 @@
 
     <div class="col-lg-10">
       <div class="sorting-buttons">
-        <button ng-click="productsIndex.sortFire()" type="button">None</button>|
-        <button ng-click="productsIndex.sortFire()" type="button">High/Low </button>|
-        <button ng-click="productsIndex.sortFire()" type="button">Differential</button>
+        <button ng-click="productsIndex.sortFire(0)" type="button"><span ng-class="{ selectedSort: productsIndex.sortHigh === null && productsIndex.sortDiff === null} ">None</span></button>|
+        <button ng-click="productsIndex.sortFire(1)" type="button" ng-class="{ selectedSort: productsIndex.sortHigh === true || productsIndex.sortHigh === false} ">High/Low </button>|
+        <button ng-click="productsIndex.sortFire(2)" type="button" ng-class="{ selectedSort: productsIndex.sortDiff === true || productsIndex.sortDiff === false} ">Differential</button>
       </div>
       <div class="col-md-4 col-sm-12" ng-repeat="product in productsIndex.filteredPrice track by $index">
         <div class="card wines-card">

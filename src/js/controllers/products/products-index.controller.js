@@ -11,14 +11,23 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   vm.year          = '';
   vm.min           = 0;
   vm.max           = 100000;
-  vm.sort          = false;
+  vm.sortHigh      = null;
+  vm.sortDiff      = null;
   Product
   .query()
   .$promise
   .then(products => {
-    vm.all = products;
-    console.log(vm.all);
-    filterProducts();
+    let processedProducts = 0;
+    products.forEach(product => {
+      product.price.deviation = parseInt(product.price.livePrice/product.price.retail*100);
+      processedProducts++;
+      if (processedProducts === products.length) {
+        vm.all = products;
+        filterProducts();
+      }
+    });
+    // console.log(vm.all);
+
   });
 
   function filterProducts() {
@@ -38,9 +47,14 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
     // vm.filteredPrice = vm.filtered.filter(item => {
     //   return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
     // });
-
-    if (vm.sort === true) {
-      sortProducts(vm.filteredPrice);
+    if (vm.sortHigh === true) {
+      sortProductsHighToLow(vm.filteredPrice);
+    } else if (vm.sortHigh === false) {
+      sortProductsLowToHigh(vm.filteredPrice);
+    } else if (vm.sortDiff === true ) {
+      sortProductsDiffHigh(vm.filteredPrice);
+    } else if (vm.sortDiff === false ) {
+      sortProductsDiffLow(vm.filteredPrice);
     } else {
       vm.filteredPrice = vm.filtered.filter(item => {
         return item.price.livePrice <= vm.max && item.price.livePrice >= vm.min;
@@ -51,14 +65,44 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
 
   vm.sortFire = sortFire;
 
-  function sortFire() {
-    vm.sort === true ? vm.sort = false : vm.sort = true;
+  function sortFire(action) {
+    console.log('firing');
+    if (action === 0) {
+      vm.sortHigh = null;
+      vm.sortDiff = null;
+    }
+    if (action === 1) {
+      vm.sortHigh === true ? vm.sortHigh = false : vm.sortHigh = true;
+      vm.sortDiff = null;
+    } else if (action === 2) {
+      vm.sortDiff === true ? vm.sortDiff = false : vm.sortDiff = true;
+      vm.sortHigh = null;
+    }
     filterProducts();
   }
 
-  function sortProducts(products){
+  function sortProductsHighToLow(products){
+    console.log('Sorting High to Low');
     products.sort(function(a, b) {
       return b.price.livePrice - a.price.livePrice;
+    });
+  }
+  function sortProductsLowToHigh(products){
+    console.log('Sorting Low to High');
+    products.sort(function(a, b) {
+      return a.price.livePrice - b.price.livePrice;
+    });
+  }
+
+  function sortProductsDiffHigh(products) {
+    products.sort(function(a, b) {
+      return a.price.deviation - b.price.deviation;
+    });
+  }
+
+  function sortProductsDiffLow(products) {
+    products.sort(function(a, b) {
+      return b.price.deviation - a.price.deviation;
     });
   }
 
@@ -76,7 +120,7 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   function assignWatching() {
     vm.currentUser = CurrentUserService.getUser();
     vm.currentUser = CurrentUserService.currentUser;
-    console.log(vm.currentUser._id);
+    // console.log(vm.currentUser._id);
     UserWatchingFactory.get({id: vm.currentUser._id}).$promise.then(user => {
       vm.watchingUser = user;
     });
@@ -85,7 +129,7 @@ function ProductsIndexCtrl(Product, $stateParams, CurrentUserService, filterFilt
   function watchClick(id, $index){
     vm.currentUser = CurrentUserService.getUser();
     vm.currentUser = CurrentUserService.currentUser;
-    console.log(vm.currentUser._id);
+    // console.log(vm.currentUser._id);
     UserWatchingFactory.get({id: vm.currentUser._id}).$promise.then(user => {
       vm.watchingUser = user;
       addWatch();
