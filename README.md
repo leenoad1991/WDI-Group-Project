@@ -1,89 +1,8 @@
 
 WDI - Group Project
 
-Brief
-RESTful, authenticated App..
-
-Thursday
-Decide on an idea and talk through the various components and challenges.
-
-Friday
-Planning
-*Research the API - we need something that has price, information, location of vineyard and a picture.
-*Plan out the different models - Our wine, user and live price.
-*setting and assigning tasks for the next 6 days.
-*setting up the file structure and constantly committing to Git.
-##models
-####user
-```
-{
-	id: _blah,
-	name: _name,
-	email: _email,
-	password: _password
-	PasswordConfirmation: _ PasswordConfirmation
-	watching: {
-				[wine_id]
-				},
-	basket:	{
-				[wine_id]
-				}
-	orders: 	{
-				past_orders: [order_string],
-				current_orders: [order_string]
-				},
-	priviledges:    {
-				admin: true/false,
-				stock_view: true/false,
-				add_stock: true/false,
-				user_crud: true/false
-				}
-}			
-```
-####wine
-```
-{
-	id: _id,
-	name: _name,
-	info: {
-			type: white/red/rose,
-			grape: _grape,
-			year: _year
-			}
-	description: descriptionString,
-	label: image,
-	location: {
-				country: _country,
-				region: _region,
-				lat: _lat,
-				lng: _lng
-				}
-	price: 	{
-				min: _min,
-				max: _max,
-				retail: _retail
-				}
-	watched:
-}
-
-
-```
 ---
 
-### Concept
-- Graphic 
-- Description
-
-
-Planning & Mockups
-- 
-
-
-### Demo 
-##### Basic User
-##### Admin User
-
-### 
 
 # -- Market-X --
 
@@ -178,20 +97,152 @@ These designs were particularly useful because they allowed everyone to work tow
 They also allowed us to better visualise how we wanted the final product to look and to act. 
 
 
+## Walkthrough
+Our intention with this product was to create a market place where business could upload products and sell them with a guranteed margin.
 
-
-## Walkthrough (4 min)
+We could either whitelabel the product or we host it ourselves. The functionality is described below. 
 ### Basic User
+A normal user who does not have any admin privaleges can register to the site, and login. 
+
+There they can browse the products that are available and add items to their watch list. They can view more information about products.
+
+<em> It was our original intention to allow users to actually buy products and add them to a basket by implementing stripe. However, we ran our of time. It is definitely something we would consider in the future. </em>
+
 #### Reactionary Prices
+
+The core function of the website is that the prices of products react to user interaction. If users view products or add them to their watch lists for example then we update prices to reflect this. The more popular a porduct the more expensive it is. 
+
+We have created an algorithm that takes into account the weightings of actions, the weightings of the product in the total market and adjusts accorgingly. 
+
+How we achieved this is explained below.
+
 #### Buy Now
+
+The buy now function is the event we have used to trigger the price increase. This takes into account all the other factors that have been accumilating and sends them to the algorithm in order to determin its new price. 
+
 ### Admin User
 #### Backend
 ## Stage 1
 #### Challenges/Win (2 min) 
-## Stage 2</strong>
+## Stage 2
 #### Challenges/Win (2 min) with Code
-## Stage 3</strong>
+## Stage 3
+
 #### Challenges/Win (2 min) with Code
+
+```
+UpdatePricesCtrl.$inject = ['PricesFactory', 'TotalValueService', 'Product'];
+function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
+  const vm = this;
+  TotalValueService.getTotalValue();
+  vm.findProduct = findPrices;
+  Product.query().$promise.then(products => {
+    vm.products = products;
+    getMarketValue();
+  });
+
+  function findPrices(productId, $index){
+    PricesFactory.query().$promise.then(data => {
+      vm.purchase   = data[0].purchase;
+      vm.watch      = data[0].watch;
+      vm.view       = data[0].view;
+      vm.profit     = data[0].profit;
+      getTotalValue();
+      findProduct(productId, $index);
+      getMarketLiveValue();
+    });
+  }
+
+  vm.getMarketLiveValue = getMarketLiveValue;
+
+
+  function getMarketValue() {
+    vm.marketPrice = 0;
+    vm.products.forEach(product => {
+      vm.marketPrice = vm.marketPrice + product.price.retail;
+    });
+  }
+  function getMarketLiveValue() {
+    vm.marketLivePrice = 0;
+    vm.products.forEach(product => {
+      vm.marketLivePrice = vm.marketLivePrice + product.price.livePrice;
+    });
+  }
+
+  function getTotalValue(){
+    setTimeout(function () {
+      vm.totalStockValue = TotalValueService.totalStockValue;
+    }, 10);
+  }
+
+  function findProduct(productId, $index){
+    Product.get({id: productId}).$promise.then(product => {
+      vm.prodPurchase     = (product.stock.original - product.stock.current) + 1;
+      vm.prodWatchByLen   = product.watchedBy.length + 1; //return 1 if 0
+      vm.prodViewsCount   = product.views.count + 1;
+      vm.prodPriceLive    = product.price.livePrice;
+      vm.prodPriceRetail  = product.price.retail;
+      vm.product          = product;
+      getMultiplier(productId, $index);
+    });
+  }
+
+  function getMultiplier(productId, $index){
+    vm.multiplier = (vm.purchase.demo*vm.prodPurchase) * Math.pow(vm.watch.demo, vm.prodWatchByLen) * Math.pow(vm.view.demo, vm.prodViewsCount);
+    setTimeout(function () {
+      getNewLivePrice();
+      getDifference(productId, $index);
+    }, 15);
+  }
+
+  function getDifference(productId, $index) {
+    vm.difference = (vm.prodPriceRetail * vm.multiplier) - vm.prodPriceRetail;
+    getDebtPercentage(productId, $index);
+  }
+  
+  function getNewLivePrice() {
+    vm.newLivePrice = (vm.prodPriceLive*vm.multiplier);
+  }
+
+  function getDebtPercentage(productId, $index) {
+    vm.debtPercentage = (vm.newLivePrice-vm.prodPriceRetail)/(vm.totalStockValue-vm.prodPriceRetail);
+    vm.remainingTSV = vm.totalStockValue-vm.prodPriceRetail;
+    updateAllProducts(productId, $index);
+  }
+
+  function updateAllProducts(productId, $index){
+    vm.product.price.livePrice = vm.newLivePrice;
+    vm.updateCount = 0;
+    if ( Math.floor((new Date() - 60000*60) > vm.product.views.lastTime)) {
+      vm.product.price.livePriceDisplay.push(vm.product.price.livePrice);
+      vm.product.price.liveTime.push(new Date().getHours());
+    }
+    Product.update({ id: vm.product._id}, vm.product)
+    .$promise
+    .then(() => {
+    }).catch(err => console.log(err));
+    vm.products.forEach(product => {
+      vm.updateCount ++;
+      if (product._id !== productId) {
+        vm.updateCount ++;
+        product.price.livePrice = product.price.livePrice-(product.price.livePrice*vm.debtPercentage);
+
+        if ( Math.floor((new Date() - 60000*60) > vm.product.views.lastTime)) {
+          vm.product.price.livePriceDisplay.push(vm.product.price.livePrice);
+          vm.product.price.liveTime.push(new Date().getHours());
+        }
+        
+        Product.update({ id: product._id}, product).$promise.then(() => {
+          console.log('Product Updated');
+        }).catch(err => console.log(err));
+      }
+      
+      if (vm.updateCount === vm.products.length) {
+        getMarketLiveValue();
+      }
+    });
+  }
+```
 ## Stage 4 - Wishlist</strong>
 ### Future 
 #### Market of Markets (Graphic)
@@ -203,7 +254,6 @@ They also allowed us to better visualise how we wanted the final product to look
 #### Next Project
 ##### Sacrifices (Error, CSS, Testing, File Organisation)
 ##### Success (Amount achieved, completing our spec)
-
 
 
 

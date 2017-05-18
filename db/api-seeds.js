@@ -7,6 +7,9 @@ mongoose.connect(env.db.development);
 const Product = require('../models/product');
 Product.collection.drop();
 
+var time = new Date();
+time = time.getTime();
+
 var request = require('request');
 request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b5348a1d8014ddcd074d9de5dba1f688&size=100&filter=categories(7155+124)+price(400%7C600)', function (error, response, body) {
   body = JSON.parse(body);
@@ -38,7 +41,8 @@ request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b534
       views: {
         count: 4,
         number: [100, 120, 140, 180, 200, 130, 100, 89, 90, 100, 121, 130],
-        time: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        time: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+        lastTime: time
       }
     }).then(products => {
       console.log(`${products}`);
