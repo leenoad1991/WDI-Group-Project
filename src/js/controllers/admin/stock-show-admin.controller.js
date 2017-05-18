@@ -9,7 +9,7 @@ function StockShowCtrl($stateParams, Product, $state) {
   const vm = this;
   vm.product = Product.get($stateParams);
   vm.delete = deleteProduct;
-  
+
   function deleteProduct(product) {
     console.log('deleting');
     Product

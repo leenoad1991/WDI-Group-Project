@@ -3,7 +3,6 @@ angular
   .module('wineApp', [
     'ui.router',
     'ngResource',
-    'angular-jwt'
+    'angular-jwt',
+    'chart.js'
   ]);
-
-  

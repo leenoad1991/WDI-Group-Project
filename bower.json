@@ -19,6 +19,7 @@
     "angular-jwt": "^0.1.9",
     "angular-ui-router": "^1.0.3",
     "bootstrap": "^3.3.7",
-    "angular-resource": "^1.6.4"
+    "angular-resource": "^1.6.4",
+    "angular-chart.js": "^1.1.1"
   }
 }
