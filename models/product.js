@@ -21,10 +21,8 @@ const productSchema = new mongoose.Schema({
   price: {
     retail: { type: Number },
     livePrice: { type: Number},
-    livePriceDisplay: [ {
-      livePrice: { type: Number },
-      time: { type: Date }
-    }]
+    livePriceDisplay: [ { type: Number }],
+    liveTime: [{ type: Number }]
   },
   views: {
     count: { type: Number, default: 1 },

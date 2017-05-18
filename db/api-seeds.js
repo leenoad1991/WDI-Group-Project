@@ -30,10 +30,10 @@ request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b534
         lng: x.Vineyard.GeoLocation.Longitude
       },
       price: {
-        min: x.PriceMin,
-        max: x.PriceMax,
-        livePrice: x.PriceRetail,
-        retail: x.PriceRetail
+        livePrice: 10.00,
+        retail: 10.00,
+        livePriceDisplay: [ 10.00, 15.00, 17.00, 20.00, 22.00, 24.00, 16.00, 14.00, 28.00],
+        liveTime: [ 10, 11, 12, 13, 14, 15, 16, 17, 18]
       }
     }).then(products => {
       console.log(`${products}`);
