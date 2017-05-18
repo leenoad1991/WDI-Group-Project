@@ -500,6 +500,9 @@ body {
     width: 100%;
     border-style: none;
     text-indent: 5px;
+    &::placeholder {
+      color: black;
+    }
   }
 }
 

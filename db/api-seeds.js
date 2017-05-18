@@ -30,14 +30,18 @@ request('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=b534
         lng: x.Vineyard.GeoLocation.Longitude
       },
       price: {
-        livePrice: 10.00,
-        retail: 10.00,
-        livePriceDisplay: [ 10.00, 15.00, 17.00, 20.00, 22.00, 24.00, 16.00, 14.00, 28.00],
-        liveTime: [ 10, 11, 12, 13, 14, 15, 16, 17, 18]
+        livePrice: x.PriceRetail,
+        retail: x.PriceRetail,
+        livePriceDisplay: [ 200.00, 150.00, 170.00, 200.00, 220.00, 240.00, 160.00, 140.00, 280.00, 300.00, 400.00, 700.00],
+        liveTime: [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+      },
+      views: {
+        count: 4,
+        number: [100, 120, 140, 180, 200, 130, 100, 89, 90, 100, 121, 130],
+        time: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
       }
     }).then(products => {
       console.log(`${products}`);
-      // console.log(users);
     }).catch(err => {
       if (err) console.log(err);
     }).finally(() => {
