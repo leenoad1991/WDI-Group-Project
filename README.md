@@ -98,7 +98,7 @@ We developed this idea over the Friday afternoon on the first day of the project
 Market-X fits the spec of the assignment and goes above and beyond what we learned. It was a challenge that we felt comfortable reaching for and one that we undertook gladly. 
 
 ##### Our Initial Goals
-![planning-group-project-2](https://cloud.githubusercontent.com/assets/25775232/26201999/a8033ef6-3bcd-11e7-84a6-60328f8b0a2e.JPG)
+<!--![planning-group-project-2](https://cloud.githubusercontent.com/assets/25775232/26201999/a8033ef6-3bcd-11e7-84a6-60328f8b0a2e.JPG)-->
 <em> The room where we started planning </em>
 
 Our initial goals for the project where to make a store where the value of the products could change and be update live. They would be effected by user interaction. Effectively making a stock market but for an online store.
@@ -155,19 +155,19 @@ We also made it a priority to announce what files you were working in and when. 
 * Complete features before moving on to the next one
 
 #### Designing
-![colors](https://cloud.githubusercontent.com/assets/25775232/26203296/99192950-3bd2-11e7-89f0-288748f61126.png)
-
+<!--![colors](https://cloud.githubusercontent.com/assets/25775232/26203296/99192950-3bd2-11e7-89f0-288748f61126.png)
+-->
 <br> 
 <em> Very early on we decided on a colour scheme that we wanted to adhere to. Simple tonal reds that would pervay the site </em>
 <br>
 
-![wine-index](https://cloud.githubusercontent.com/assets/25775232/26203307/a12dfd46-3bd2-11e7-97d5-4370f17c7f79.png)
-
+<!--![wine-index](https://cloud.githubusercontent.com/assets/25775232/26203307/a12dfd46-3bd2-11e7-97d5-4370f17c7f79.png)
+-->
 <br>
 <em> The index page for products was going to be the main content of the page and thus we decided to do an advanced wireframe for it.</em>
 <br>
 
-![wine-show](https://cloud.githubusercontent.com/assets/25775232/26203299/9cf2d922-3bd2-11e7-9f10-922759aa2792.png)
+<!--![wine-show](https://cloud.githubusercontent.com/assets/25775232/26203299/9cf2d922-3bd2-11e7-9f10-922759aa2792.png)-->
 
 <br>
 <em> The show page for products was going to be another main page for content thus we decided to do an advanced wireframe for it as well.</em>

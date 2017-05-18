@@ -485,12 +485,14 @@ body {
 
 
 .sorting-menu {
+  position: fixed;
   margin-top: 40px;
   text-align: center;
   padding: 8px;
   background-color: #D70909;
   color: #f5f5f5;
   border-radius: 10px;
+  box-shadow: 5px 5px 20px lightgrey;
 
   input[type=text] {
     height: 34px;
@@ -498,5 +500,18 @@ body {
     width: 100%;
     border-style: none;
     text-indent: 5px;
+  }
+}
+
+.account-menu {
+  ul {
+    list-style: none;
+    }
+
+  a {
+    color: #9F031B;
+  }
+  span {
+    font-weight: 600;
   }
 }

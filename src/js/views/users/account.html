@@ -8,12 +8,12 @@
           <li><a ui-sref="account.editProfile">Edit Profile</a></li>
           <li><a ui-sref="account.paymentOptions">Payment Options</a></li>
           <li><a ui-sref="account.orders">Orders</a></li>
-          <li ng-show="main.user.privileges.admin"><a ui-sref="account.admin">Admin</a></li>
+          <li ng-show="main.user.privileges.admin"><a ui-sref="account.admin"><span>Admin</span></a></li>
           <ul ng-show="main.user.privileges.admin">
-            <li><a ui-sref="account.users">Users</a></li>
-            <li><a ui-sref="account.stock">Stock</a></li>
-            <li><a ui-sref="account.stockAdd">Add Stock</a></li>
-            <li><a ui-sref="account.ordersAll">Orders</a></li>
+            <li><a ui-sref="account.users"><span>Users</span></a></li>
+            <li><a ui-sref="account.stock"><span>Stock</span></a></li>
+            <li><a ui-sref="account.stockAdd"><span>Add Stock</span></a></li>
+            <li><a ui-sref="account.ordersAll"><span>Orders</span></a></li>
           </ul>
         </ul>
       </div>
