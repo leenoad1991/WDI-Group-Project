@@ -7,7 +7,16 @@ StockShowCtrl.$inject = ['$stateParams', 'Product', '$state'];
 
 function StockShowCtrl($stateParams, Product, $state) {
   const vm = this;
-  vm.product = Product.get($stateParams);
+  Product.get({id: $stateParams.id})
+  .$promise
+  .then(product => {
+    console.log(product);
+    product.views.time = product.views.time.slice(Math.max(product.views.time.length - 12, 1));
+    product.views.number = product.views.number.slice(Math.max(product.views.number.length - 12, 1));
+    product.price.liveTime = product.price.liveTime.slice(Math.max(product.price.liveTime.length - 12, 1));
+    product.price.livePriceDisplay = product.price.livePriceDisplay.slice(Math.max(product.price.livePriceDisplay.length - 12, 1));
+    vm.product = product;
+  });
   vm.delete = deleteProduct;
 
   function deleteProduct(product) {
