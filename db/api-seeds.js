@@ -2,7 +2,7 @@ const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 const env        = require('../config/env');
 
-mongoose.connect(env.db.development);
+mongoose.connect(env.db[process.env.NODE_ENV]);
 
 const Product = require('../models/product');
 Product.collection.drop();
