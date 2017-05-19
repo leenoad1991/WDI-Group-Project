@@ -18,7 +18,7 @@ function ProductsShowCtrl(Product, $stateParams, $state, CurrentUserService) {
     vm.product = product;
     vm.active = true;
     vm.product.views.count ++;
-    if ( Math.floor((new Date() - 60000*60) > vm.product.views.lastTime)) {
+    if ( Math.floor((new Date() - 60000*60) > Math.floor(vm.product.views.lastTime))) {
       vm.product.views.lastTime = vm.time;
       vm.product.views.number.push(vm.product.views.count);
       vm.product.views.time.push(new Date().getHours());

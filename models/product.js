@@ -28,7 +28,7 @@ const productSchema = new mongoose.Schema({
     count: { type: Number, default: 1 },
     number: [{type: Number}],
     time: [{type: Number}],
-    lastTime: { type: Date, default: Date.now }
+    lastTime: { type: Number, default: new Date().getTime() }
   },
   watchedBy: [{type: Schema.Types.ObjectId, ref: 'User' }],
   stock: {

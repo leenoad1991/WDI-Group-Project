@@ -121,6 +121,32 @@ How we achieved this is explained below.
 The buy now function is the event we have used to trigger the price increase. This takes into account all the other factors that have been accumilating and sends them to the algorithm in order to determin its new price. 
 
 ### Admin User
+
+We set up a backend management system that would allow approved users to over see the stock of the system, they could see key metrics about products and data on what effects the user interactions have had for the last 12 hours. 
+
+Currently it only fires when an hour has been passed not automatically on the backend. This was because in production users would constantly be using the site and thus the system would fire. 
+
+With more time we would probably rewrite it on the backend to fire system wide every hour. 
+
+```
+    if ( Math.floor((new Date() - 60000*60) > Math.floor(vm.product.views.lastTime))) {
+      vm.product.views.lastTime = vm.time;
+      vm.product.views.number.push(vm.product.views.count);
+      vm.product.views.time.push(new Date().getHours());
+``` 
+
+
+
+
+```
+    product.views.time = product.views.time.slice(Math.max(product.views.time.length - 12, 1));
+    product.views.number = product.views.number.slice(Math.max(product.views.number.length - 12, 1));
+    product.price.liveTime = product.price.liveTime.slice(Math.max(product.price.liveTime.length - 12, 1));
+    product.price.livePriceDisplay = product.price.livePriceDisplay.slice(Math.max(product.price.livePriceDisplay.length - 12, 1));
+```
+ <em> The code we used for the graphs. </em> 
+ 
+ We used angular-charts. 
 #### Backend
 ## Stage 1
 #### Challenges/Win (2 min) 
@@ -243,12 +269,12 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
     });
   }
 ```
-## Stage 4 - Wishlist</strong>
+## Stage 4 - Wishlist
 ### Future 
 #### Market of Markets (Graphic)
 #### Stripe Integration (Lee)
 #### Backend Analysis 
-## Biggest Takeaways </strong>
+## Biggest Takeaways 
 #### Development in Teams
 #### Efficient Planning & Task Delegation
 #### Next Project

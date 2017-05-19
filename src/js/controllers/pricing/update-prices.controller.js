@@ -25,8 +25,7 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
       findProduct(productId, $index);
       getMarketLiveValue();
       console.log(productId);
-      vm.time = new Date();
-      vm.time = vm.time.getTime();
+      vm.time = new Date().getTime();
     });
   }
 
@@ -100,13 +99,11 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
     vm.product.price.livePrice = vm.newLivePrice;
     vm.updateCount = 0;
     if ( Math.floor((new Date() - 60000*60) > vm.product.views.lastTime)) {
-      console.log('GRAPHS UPDATING');
-      vm.product.views.lastTime = Math.floor(new Date());
-      vm.product.price.livePriceDisplay.push(vm.product.price.livePrice);
+      vm.product.views.lastTime = Math.floor(new Date().getTime());
+      vm.product.price.livePriceDisplay.push(Math.floor(vm.product.price.livePrice));
       vm.product.price.liveTime.push(new Date().getHours());
     }
     Product.update({ id: vm.product._id}, vm.product).$promise.then(() => {
-      // console.log(vm.product, 'Product Updated');
     }).catch(err => console.log(err));
     vm.products.forEach(product => {
       vm.updateCount ++;
@@ -114,12 +111,12 @@ function UpdatePricesCtrl(PricesFactory, TotalValueService, Product) {
         vm.updateCount ++;
         product.price.livePrice = product.price.livePrice-(product.price.livePrice*vm.debtPercentage);
         console.log(product.name, product.price.livePrice);
-        // if ( Math.floor((new Date() - 60000*60) > vm.product.views.lastTime)) {
-        console.log('GRAPHS UPDATING', product);
-        product.views.lastTime = vm.time;
-        product.price.livePriceDisplay.push(Math.floor(vm.product.price.livePrice));
-        product.price.liveTime.push(new Date().getHours());
-        // }
+        if ( Math.floor((new Date() - 60000*60) > vm.product.views.lastTime)) {
+          console.log('GRAPHS UPDATING', product);
+          product.views.lastTime = vm.time;
+          product.price.livePriceDisplay.push(Math.floor(vm.product.price.livePrice));
+          product.price.liveTime.push(new Date().getHours());
+        }
         Product.update({ id: product._id}, product).$promise.then(() => {
           console.log('Product Updated');
         }).catch(err => console.log(err));
